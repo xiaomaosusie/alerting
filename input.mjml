@@ -1,0 +1,69 @@
+<mjml>
+    <mj-head>
+        <mj-style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+        }
+
+        .mj-column-per-100 td,
+        .mj-column-per-100 th
+        {
+            text-align:left;
+            width: 20%;
+        }
+
+        .mj-column-per-100 td + td,
+        .mj-column-per-100 th + th
+        {
+            text-align:center;
+            width: 20%;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #31004d;
+            color: white;
+        }
+        </mj-style>
+    </mj-head>
+
+    <mj-body>
+      <mj-container>
+      {% for i in accts.index %}
+       <!-- HEADER -->
+       <mj-section>
+        <mj-column>
+         <mj-text>{{accts[i]}}</mj-text>
+        </mj-column>
+       </mj-section>
+
+       <!-- Body -->
+       <mj-section>
+        <mj-column>
+         <mj-table >
+             <tr>
+               {% for h in hdrs[i] %}
+                  <th>{{h}}</th>
+               {% endfor %}
+             </tr>
+
+             {% for row in rows[i] %}
+              <tr>
+               {% for col in row %}
+                <td>{{col}}</td>
+               {% endfor %}
+              </tr>
+            {% endfor %}   
+        </mj-table>
+        </mj-column>
+       </mj-section>
+      {% endfor %}
+      </mj-container>
+    </mj-body>
+</mjml>
