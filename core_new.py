@@ -89,7 +89,7 @@ def output_email(df):
 	accts = pd.Series(df.index)
 	headers = []
 	value = []
-	yesterday_cols = ['revenue' , 'offer' , 'offerrate' , 'offermatchrate' , 'bidrate' , 'matchbidrate' , 'blockrate' , 'winrate' , 'revcpm'
+	yesterday_cols = ['revenue' , 'offer' , 'offerrate' , 'offermatchrate' , 'bidrate' , 'blockrate' , 'winrate' , 'revcpm'
 	                     , 'costcpm' , 'margin' , 'timeoutrate']
 	yesterday = df[yesterday_cols]
 	yesterday_T = yesterday.T
@@ -101,8 +101,10 @@ def output_email(df):
 		pday = slice_data('pd', delta, acct)
 		avg4d = slice_data('4davg', delta, acct) 
 		avg7d = slice_data('7davg', delta, acct) 
-		acct_data = pd.concat([acct_yesterday, pday, avg4d, avg7d], axis = 1, keys=[day, 'change agst Prior Day', 'change agst 4-day avg', 'change agst 7-day avg'])
+		acct_data = pd.concat([acct_yesterday, pday, avg4d, avg7d], axis = 1, keys=[day, 'change agst prior day', 'change agst 4-day avg', 'change agst 7-day avg'])
 		acct_data= acct_data.reset_index()
+		#formatting metric names 
+		acct_data['metric'] = acct_data['metric'].apply(lambda x: x.replace('rate', ' rate')) 
 		data = df_json(acct_data)
 		header = data['columns']
 		val = data['data']
