@@ -25,6 +25,8 @@ query = {
 
 me = 'ssu@pulsepoint.com'
 
+you = 'ssu@pulsepoint.com'
+
 neg_alert_threshold = -10
 #pos_alert_threshold = 10
 alert_rev_cutoff = 500
@@ -108,7 +110,7 @@ def output_email(df):
 		value.append(val)
 	html = EmailAlert('dsp', 'input.mjml', accts, headers, value)	
 	html.render_template()
-	html.send_email('Testing', me, me)
+	html.send_email('Testing', me, you)
 
 
 def format_data(df):

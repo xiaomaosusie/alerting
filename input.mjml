@@ -1,6 +1,6 @@
 <mjml>
     <mj-head>
-        <mj-style>
+        <mj-style inline="inline">
         table {
             border-collapse: collapse;
             width: 100%;
