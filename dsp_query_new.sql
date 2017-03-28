@@ -27,10 +27,6 @@ SELECT
     CASE WHEN pdbidrate > 0 THEN ROUND((bidrate-pdbidrate)/pdbidrate*100,1) ELSE 0.0 END as bidrate_change_agst_pd,
     CASE WHEN 4dbidrate > 0 THEN ROUND((bidrate-4dbidrate)/4dbidrate*100,1) ELSE 0.0 END as bidrate_change_agst_4davg,
     CASE WHEN 7dbidrate > 0 THEN ROUND((bidrate-7dbidrate)/7dbidrate*100,1) ELSE 0.0 END as bidrate_change_agst_7davg,
-    --matchbidrate delta
-    CASE WHEN pdmatchbidrate > 0 THEN ROUND((matchbidrate-pdmatchbidrate)/pdmatchbidrate*100,1) ELSE 0.0 END as matchbidrate_change_agst_pd,
-    CASE WHEN 4dmatchbidrate > 0 THEN ROUND((matchbidrate-4dmatchbidrate)/4dmatchbidrate*100,1) ELSE 0.0 END as matchbidrate_change_agst_4davg,
-    CASE WHEN 7dmatchbidrate > 0 THEN ROUND((matchbidrate-7dmatchbidrate)/7dmatchbidrate*100,1) ELSE 0.0 END as matchbidrate_change_agst_7davg,
     --block delta
     CASE WHEN pdblockrate > 0 THEN ROUND((blockrate-pdblockrate)/pdblockrate*100,1) ELSE 0.0 END as blockrate_change_agst_pd,
     CASE WHEN 4dblockrate > 0 THEN ROUND((blockrate-4dblockrate)/4dblockrate*100,1) ELSE 0.0 END as blockrate_change_agst_4davg,
@@ -63,7 +59,7 @@ FROM
             bidsofferedtotal as offer,
             CASE WHEN BidsOfferedTotal > 0 THEN ROUND(MatchedBidsOfferedTotal/BidsOfferedTotal*100) ELSE 0 END AS offermatchrate,
             CASE WHEN BidsOfferedTotal > 0 THEN ROUND(BidsMadeTotal/BidsOfferedTotal*100,1) ELSE 0.0 END AS bidrate,
-            CASE WHEN MatchedBidsOfferedTotal > 0 THEN ROUND(MatchedBidsMadeTotal/MatchedBidsOfferedTotal*100,1) ELSE 0.0 END AS matchbidrate,
+            --CASE WHEN MatchedBidsOfferedTotal > 0 THEN ROUND(MatchedBidsMadeTotal/MatchedBidsOfferedTotal*100,1) ELSE 0.0 END AS matchbidrate,
             CASE WHEN BidsOfferedTotal > 0 THEN ROUND(TimeOuts/BidsOfferedTotal*100,1) ELSE 0.0 END AS timeoutrate,
             CASE WHEN BidsMadeTotal > 0 THEN ROUND(Blocks/BidsMadeTotal*100,1) ELSE 0.0 END AS blockrate,
             CASE WHEN BidsMadeTotal > 0 THEN ROUND(COALESCE(PaidImpressions, 0)/BidsMadeTotal*100,1) ELSE 0.0 END AS winrate,
@@ -156,7 +152,7 @@ LEFT JOIN
             bidsOfferedtotal                                    AS pdbidsofferedtotal,
             CASE WHEN BidsOfferedTotal > 0 THEN ROUND(MatchedBidsOfferedTotal/BidsOfferedTotal*100) ELSE 0 END AS pdoffermatchrate,
             CASE WHEN BidsOfferedTotal > 0 THEN ROUND(BidsMadeTotal/BidsOfferedTotal*100,1) ELSE 0.0 END AS pdbidrate,
-            CASE WHEN MatchedBidsOfferedTotal > 0 THEN ROUND(MatchedBidsMadeTotal/MatchedBidsOfferedTotal*100,1) ELSE 0.0 END AS pdmatchbidrate,
+            --CASE WHEN MatchedBidsOfferedTotal > 0 THEN ROUND(MatchedBidsMadeTotal/MatchedBidsOfferedTotal*100,1) ELSE 0.0 END AS pdmatchbidrate,
             CASE WHEN BidsOfferedTotal > 0 THEN ROUND(TimeOuts/BidsOfferedTotal*100,1) ELSE 0.0 END AS pdtimeoutrate,
             CASE WHEN BidsMadeTotal > 0 THEN ROUND(Blocks/BidsMadeTotal*100,1) ELSE 0.0 END AS pdblockrate,
             CASE WHEN BidsMadeTotal > 0 THEN ROUND(COALESCE(PaidImpressions, 0)/BidsMadeTotal*100,1) ELSE 0.0 END AS pdwinrate,
@@ -251,8 +247,8 @@ LEFT JOIN
             ROUND(SUM(BidsOfferedTotal)/COUNT(DISTINCT a.day))            AS 4davgbidsofferedtotal,
             CASE WHEN SUM(BidsOfferedTotal) > 0 THEN ROUND(SUM(MatchedBidsOfferedTotal)/SUM(BidsOfferedTotal)*100) ELSE 0 END AS 4doffermatchrate,
             CASE WHEN SUM(BidsOfferedTotal) > 0 THEN ROUND(SUM(BidsMadeTotal)/SUM(BidsOfferedTotal)*100,1) ELSE 0.0 END AS 4dbidrate,
-            CASE WHEN SUM(MatchedBidsOfferedTotal) > 0 THEN ROUND(SUM(MatchedBidsMadeTotal)/SUM(MatchedBidsOfferedTotal)*100,1)
-                 ELSE 0.0 END AS 4dmatchbidrate,
+            --CASE WHEN SUM(MatchedBidsOfferedTotal) > 0 THEN ROUND(SUM(MatchedBidsMadeTotal)/SUM(MatchedBidsOfferedTotal)*100,1)
+                -- ELSE 0.0 END AS 4dmatchbidrate,
             CASE WHEN SUM(BidsOfferedTotal) > 0 THEN ROUND(SUM(TimeOuts)/SUM(BidsOfferedTotal)*100,1) ELSE 0.0 END AS 4dtimeoutrate,
             CASE WHEN SUM(BidsMadeTotal) > 0 THEN ROUND(SUM(Blocks)/SUM(BidsMadeTotal)*100,1) ELSE 0.0 END AS 4dblockrate,
             CASE WHEN SUM(BidsMadeTotal) > 0 THEN ROUND(SUM(COALESCE(PaidImpressions, 0))/SUM(BidsMadeTotal)*100,1) ELSE 0.0 END AS 4dwinrate,
@@ -352,8 +348,8 @@ LEFT JOIN
             ROUND(SUM(BidsOfferedTotal)/COUNT(DISTINCT a.day))            AS 7davgbidsofferedtotal,
             CASE WHEN SUM(BidsOfferedTotal) > 0 THEN ROUND(SUM(MatchedBidsOfferedTotal)/SUM(BidsOfferedTotal)*100) ELSE 0 END AS 7doffermatchrate,
             CASE WHEN SUM(BidsOfferedTotal) > 0 THEN ROUND(SUM(BidsMadeTotal)/SUM(BidsOfferedTotal)*100,1) ELSE 0.0 END AS 7dbidrate,
-            CASE WHEN SUM(MatchedBidsOfferedTotal) > 0 THEN ROUND(SUM(MatchedBidsMadeTotal)/SUM(MatchedBidsOfferedTotal)*100,1)
-                 ELSE 0.0 END AS 7dmatchbidrate,
+            --CASE WHEN SUM(MatchedBidsOfferedTotal) > 0 THEN ROUND(SUM(MatchedBidsMadeTotal)/SUM(MatchedBidsOfferedTotal)*100,1)
+                -- ELSE 0.0 END AS 7dmatchbidrate,
             CASE WHEN SUM(BidsOfferedTotal) > 0 THEN ROUND(SUM(TimeOuts)/SUM(BidsOfferedTotal)*100,1) ELSE 0.0 END AS 7dtimeoutrate,
             CASE WHEN SUM(BidsMadeTotal) > 0 THEN ROUND(SUM(Blocks)/SUM(BidsMadeTotal)*100,1) ELSE 0.0 END AS 7dblockrate,
             CASE WHEN SUM(BidsMadeTotal) > 0 THEN ROUND(SUM(COALESCE(PaidImpressions, 0))/SUM(BidsMadeTotal)*100,1) ELSE 0.0 END AS 7dwinrate,
