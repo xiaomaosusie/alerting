@@ -39,7 +39,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text>RTB-Quantcast</mj-text>
+         <mj-text>RTB-IPonWeb</mj-text>
         </mj-column>
        </mj-section>
 
@@ -51,7 +51,7 @@
                
                   <th>metric</th>
                
-                  <th>2017-03-26</th>
+                  <th>2017-03-30</th>
                
                   <th>change agst prior day</th>
                
@@ -66,137 +66,11 @@
                
                 <td>revenue</td>
                
-                <td>&#36;6,730</td>
+                <td>&#36;44,290</td>
                
-                <td>-8.5%</td>
-               
-                <td>-5.9%</td>
-               
-                <td>-2.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>4,820M</td>
-               
-                <td>14.7%</td>
-               
-                <td>4.0%</td>
-               
-                <td>2.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>30.7%</td>
-               
-                <td>9.6%</td>
+                <td>-16.2%</td>
                
                 <td>-0.6%</td>
-               
-                <td>-2.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>43.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-2.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>11.6%</td>
-               
-                <td>-17.1%</td>
-               
-                <td>-8.7%</td>
-               
-                <td>-9.4%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>4.5%</td>
-               
-                <td>-16.7%</td>
-               
-                <td>-10.0%</td>
-               
-                <td>-8.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>1.1%</td>
-               
-                <td>10.0%</td>
-               
-                <td>10.0%</td>
-               
-                <td>10.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;1.14</td>
-               
-                <td>-5.8%</td>
-               
-                <td>-4.2%</td>
-               
-                <td>2.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.75</td>
-               
-                <td>-5.1%</td>
-               
-                <td>-2.6%</td>
-               
-                <td>5.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>34.2%</td>
-               
-                <td>-1.2%</td>
-               
-                <td>-4.5%</td>
                
                 <td>-3.4%</td>
                
@@ -204,15 +78,325 @@
             
               <tr>
                
-                <td>timeout rate</td>
+                <td>offer</td>
                
-                <td>0.7%</td>
+                <td>2,539M</td>
                
-                <td>40.0%</td>
+                <td>8.5%</td>
+               
+                <td>6.2%</td>
+               
+                <td>6.2%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>17.8%</td>
+               
+                <td>10.6%</td>
+               
+                <td>12.7%</td>
+               
+                <td>12.7%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offermatch rate</td>
+               
+                <td>61.0%</td>
+               
+                <td>-3.2%</td>
+               
+                <td>-4.7%</td>
+               
+                <td>-4.7%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>bid rate</td>
+               
+                <td>25.5%</td>
+               
+                <td>-17.5%</td>
+               
+                <td>-9.9%</td>
+               
+                <td>-16.9%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>block rate</td>
+               
+                <td>3.4%</td>
+               
+                <td>6.2%</td>
                
                 <td>0.0%</td>
                
-                <td>-12.5%</td>
+                <td>3.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>win rate</td>
+               
+                <td>1.5%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>7.1%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>revcpm</td>
+               
+                <td>&#36;4.57</td>
+               
+                <td>-8.2%</td>
+               
+                <td>2.2%</td>
+               
+                <td>3.9%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>costcpm</td>
+               
+                <td>&#36;3.37</td>
+               
+                <td>-8.4%</td>
+               
+                <td>-0.3%</td>
+               
+                <td>-3.7%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>margin</td>
+               
+                <td>26.4%</td>
+               
+                <td>1.5%</td>
+               
+                <td>8.2%</td>
+               
+                <td>28.8%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>timeout rate</td>
+               
+                <td>3.5%</td>
+               
+                <td>9.4%</td>
+               
+                <td>0.0%</td>
+               
+                <td>12.9%</td>
+               
+              </tr>
+               
+        </mj-table>
+        </mj-column>
+       </mj-section>
+      
+       <!-- HEADER -->
+       <mj-section>
+        <mj-column>
+         <mj-text>RTB-SimpliFi</mj-text>
+        </mj-column>
+       </mj-section>
+
+       <!-- Body -->
+       <mj-section>
+        <mj-column>
+         <mj-table >
+             <tr>
+               
+                  <th>metric</th>
+               
+                  <th>2017-03-30</th>
+               
+                  <th>change agst prior day</th>
+               
+                  <th>change agst 4-day avg</th>
+               
+                  <th>change agst 7-day avg</th>
+               
+             </tr>
+
+             
+              <tr>
+               
+                <td>revenue</td>
+               
+                <td>&#36;4,599</td>
+               
+                <td>-3.0%</td>
+               
+                <td>-7.4%</td>
+               
+                <td>-12.9%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer</td>
+               
+                <td>5,903M</td>
+               
+                <td>5.5%</td>
+               
+                <td>2.1%</td>
+               
+                <td>5.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>41.4%</td>
+               
+                <td>7.8%</td>
+               
+                <td>8.4%</td>
+               
+                <td>12.2%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offermatch rate</td>
+               
+                <td>45.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>2.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>bid rate</td>
+               
+                <td>1.1%</td>
+               
+                <td>0.0%</td>
+               
+                <td>10.0%</td>
+               
+                <td>0.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>block rate</td>
+               
+                <td>9.1%</td>
+               
+                <td>21.3%</td>
+               
+                <td>11.0%</td>
+               
+                <td>18.2%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>win rate</td>
+               
+                <td>5.5%</td>
+               
+                <td>-9.8%</td>
+               
+                <td>-14.1%</td>
+               
+                <td>-14.1%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>revcpm</td>
+               
+                <td>&#36;1.31</td>
+               
+                <td>0.8%</td>
+               
+                <td>-1.5%</td>
+               
+                <td>-6.4%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>costcpm</td>
+               
+                <td>&#36;1.0</td>
+               
+                <td>3.1%</td>
+               
+                <td>-2.0%</td>
+               
+                <td>-5.7%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>margin</td>
+               
+                <td>23.4%</td>
+               
+                <td>-7.5%</td>
+               
+                <td>0.9%</td>
+               
+                <td>-3.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>timeout rate</td>
+               
+                <td>1.4%</td>
+               
+                <td>27.3%</td>
+               
+                <td>7.7%</td>
+               
+                <td>40.0%</td>
                
               </tr>
                
@@ -235,7 +419,7 @@
                
                   <th>metric</th>
                
-                  <th>2017-03-26</th>
+                  <th>2017-03-30</th>
                
                   <th>change agst prior day</th>
                
@@ -250,13 +434,13 @@
                
                 <td>revenue</td>
                
-                <td>&#36;1,294</td>
+                <td>&#36;1,291</td>
                
-                <td>82.0%</td>
+                <td>-34.4%</td>
                
-                <td>4.6%</td>
+                <td>-39.6%</td>
                
-                <td>-21.9%</td>
+                <td>-25.4%</td>
                
               </tr>
             
@@ -264,13 +448,13 @@
                
                 <td>offer</td>
                
-                <td>4,450M</td>
+                <td>2,971M</td>
                
-                <td>15.4%</td>
+                <td>-22.5%</td>
                
-                <td>7.8%</td>
+                <td>-25.2%</td>
                
-                <td>5.0%</td>
+                <td>-26.2%</td>
                
               </tr>
             
@@ -278,13 +462,13 @@
                
                 <td>offer rate</td>
                
-                <td>28.3%</td>
+                <td>20.9%</td>
                
-                <td>10.1%</td>
+                <td>-20.5%</td>
                
-                <td>2.9%</td>
+                <td>-20.2%</td>
                
-                <td>-0.4%</td>
+                <td>-21.1%</td>
                
               </tr>
             
@@ -294,7 +478,7 @@
                
                 <td>16.0%</td>
                
-                <td>0.0%</td>
+                <td>-5.9%</td>
                
                 <td>0.0%</td>
                
@@ -305,212 +489,28 @@
               <tr>
                
                 <td>bid rate</td>
-               
-                <td>19.4%</td>
-               
-                <td>-5.4%</td>
-               
-                <td>-8.1%</td>
-               
-                <td>-8.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>37.9%</td>
-               
-                <td>5.6%</td>
-               
-                <td>8.6%</td>
-               
-                <td>12.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>0.4%</td>
-               
-                <td>33.3%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;0.39</td>
-               
-                <td>14.7%</td>
-               
-                <td>-2.5%</td>
-               
-                <td>-15.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.3</td>
-               
-                <td>15.4%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-11.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>22.9%</td>
-               
-                <td>1.8%</td>
-               
-                <td>-9.5%</td>
-               
-                <td>-12.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>0.9%</td>
-               
-                <td>80.0%</td>
-               
-                <td>28.6%</td>
-               
-                <td>28.6%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text>RTB-metanetworks</mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-03-26</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;1,017</td>
-               
-                <td>-26.6%</td>
-               
-                <td>-24.8%</td>
-               
-                <td>-13.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>2,796M</td>
-               
-                <td>14.8%</td>
-               
-                <td>5.5%</td>
-               
-                <td>-0.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>17.8%</td>
-               
-                <td>9.9%</td>
-               
-                <td>1.1%</td>
-               
-                <td>-5.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>31.1%</td>
-               
-                <td>8.0%</td>
-               
-                <td>15.6%</td>
                
                 <td>22.0%</td>
                
+                <td>-6.4%</td>
+               
+                <td>1.9%</td>
+               
+                <td>3.8%</td>
+               
               </tr>
             
               <tr>
                
                 <td>block rate</td>
                
-                <td>45.6%</td>
+                <td>16.5%</td>
                
-                <td>-3.2%</td>
+                <td>-50.0%</td>
                
-                <td>-4.4%</td>
+                <td>-48.3%</td>
                
-                <td>4.3%</td>
+                <td>-50.7%</td>
                
               </tr>
             
@@ -520,11 +520,11 @@
                
                 <td>0.5%</td>
                
-                <td>-28.6%</td>
-               
-                <td>-16.7%</td>
+                <td>0.0%</td>
                
                 <td>0.0%</td>
+               
+                <td>25.0%</td>
                
               </tr>
             
@@ -532,13 +532,13 @@
                
                 <td>revcpm</td>
                
-                <td>&#36;0.25</td>
+                <td>&#36;0.38</td>
                
-                <td>-13.8%</td>
+                <td>-17.4%</td>
                
-                <td>-24.2%</td>
+                <td>-24.0%</td>
                
-                <td>-26.5%</td>
+                <td>-17.4%</td>
                
               </tr>
             
@@ -546,13 +546,13 @@
                
                 <td>costcpm</td>
                
-                <td>&#36;0.18</td>
+                <td>&#36;0.31</td>
                
-                <td>-10.0%</td>
+                <td>-11.4%</td>
                
-                <td>-25.0%</td>
+                <td>-18.4%</td>
                
-                <td>-28.0%</td>
+                <td>-11.4%</td>
                
               </tr>
             
@@ -560,13 +560,13 @@
                
                 <td>margin</td>
                
-                <td>25.8%</td>
+                <td>19.5%</td>
                
-                <td>-10.1%</td>
+                <td>-13.7%</td>
                
-                <td>-8.8%</td>
+                <td>-18.7%</td>
                
-                <td>-8.8%</td>
+                <td>-19.1%</td>
                
               </tr>
             
@@ -574,13 +574,13 @@
                
                 <td>timeout rate</td>
                
-                <td>0.6%</td>
+                <td>0.4%</td>
                
-                <td>-14.3%</td>
+                <td>-50.0%</td>
                
-                <td>-25.0%</td>
+                <td>-55.6%</td>
                
-                <td>-25.0%</td>
+                <td>-50.0%</td>
                
               </tr>
                
@@ -591,7 +591,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text>RTB-Pocketmath</mj-text>
+         <mj-text>RTB-Videology - Video</mj-text>
         </mj-column>
        </mj-section>
 
@@ -603,7 +603,7 @@
                
                   <th>metric</th>
                
-                  <th>2017-03-26</th>
+                  <th>2017-03-30</th>
                
                   <th>change agst prior day</th>
                
@@ -618,13 +618,13 @@
                
                 <td>revenue</td>
                
-                <td>&#36;555</td>
+                <td>&#36;1,182</td>
                
-                <td>-25.1%</td>
+                <td>2.5%</td>
                
-                <td>-14.2%</td>
+                <td>-13.5%</td>
                
-                <td>2.8%</td>
+                <td>-18.0%</td>
                
               </tr>
             
@@ -632,239 +632,55 @@
                
                 <td>offer</td>
                
-                <td>1,481M</td>
+                <td>267M</td>
                
-                <td>-1.1%</td>
-               
-                <td>1.9%</td>
-               
-                <td>16.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>9.4%</td>
-               
-                <td>-6.0%</td>
-               
-                <td>-3.1%</td>
-               
-                <td>10.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>1.1%</td>
-               
-                <td>-35.3%</td>
-               
-                <td>-31.2%</td>
-               
-                <td>-31.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>25.2%</td>
-               
-                <td>46.5%</td>
-               
-                <td>37.0%</td>
-               
-                <td>27.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>3.6%</td>
-               
-                <td>24.1%</td>
-               
-                <td>20.0%</td>
-               
-                <td>20.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;0.97</td>
-               
-                <td>-5.8%</td>
-               
-                <td>5.4%</td>
-               
-                <td>9.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.69</td>
-               
-                <td>-14.8%</td>
-               
-                <td>1.5%</td>
-               
-                <td>6.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>28.5%</td>
-               
-                <td>30.7%</td>
-               
-                <td>9.2%</td>
-               
-                <td>7.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>4.0%</td>
-               
-                <td>8.1%</td>
-               
-                <td>-11.1%</td>
-               
-                <td>-59.6%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text>RTB-Sekindo</mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-03-26</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;85</td>
-               
-                <td>-15.8%</td>
-               
-                <td>13.3%</td>
-               
-                <td>-85.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>500M</td>
-               
-                <td>6.0%</td>
-               
-                <td>8.9%</td>
-               
-                <td>24.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>3.2%</td>
-               
-                <td>3.2%</td>
-               
-                <td>3.2%</td>
-               
-                <td>18.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>6.0%</td>
+                <td>-1.7%</td>
                
                 <td>-1.6%</td>
                
-                <td>-18.9%</td>
+                <td>-2.0%</td>
                
-                <td>-77.5%</td>
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>1.9%</td>
+               
+                <td>0.0%</td>
+               
+                <td>5.6%</td>
+               
+                <td>5.6%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offermatch rate</td>
+               
+                <td>41.0%</td>
+               
+                <td>36.7%</td>
+               
+                <td>28.1%</td>
+               
+                <td>32.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>bid rate</td>
+               
+                <td>5.2%</td>
+               
+                <td>62.5%</td>
+               
+                <td>30.0%</td>
+               
+                <td>23.8%</td>
                
               </tr>
             
@@ -872,13 +688,13 @@
                
                 <td>block rate</td>
                
-                <td>56.4%</td>
+                <td>1.7%</td>
                
-                <td>0.7%</td>
+                <td>-65.3%</td>
                
-                <td>6.8%</td>
+                <td>-80.7%</td>
                
-                <td>-8.4%</td>
+                <td>-78.2%</td>
                
               </tr>
             
@@ -886,13 +702,13 @@
                
                 <td>win rate</td>
                
-                <td>0.2%</td>
+                <td>1.0%</td>
                
-                <td>-33.3%</td>
+                <td>-50.0%</td>
                
-                <td>0.0%</td>
+                <td>-41.2%</td>
                
-                <td>-71.4%</td>
+                <td>-41.2%</td>
                
               </tr>
             
@@ -900,13 +716,13 @@
                
                 <td>revcpm</td>
                
-                <td>&#36;1.16</td>
+                <td>&#36;9.02</td>
                
-                <td>-7.9%</td>
+                <td>35.2%</td>
                
-                <td>22.1%</td>
+                <td>20.3%</td>
                
-                <td>50.6%</td>
+                <td>21.1%</td>
                
               </tr>
             
@@ -914,13 +730,13 @@
                
                 <td>costcpm</td>
                
-                <td>&#36;0.91</td>
+                <td>&#36;6.5</td>
                
-                <td>-10.8%</td>
+                <td>30.8%</td>
                
-                <td>21.3%</td>
+                <td>25.0%</td>
                
-                <td>54.2%</td>
+                <td>23.1%</td>
                
               </tr>
             
@@ -928,11 +744,167 @@
                
                 <td>margin</td>
                
-                <td>21.0%</td>
+                <td>28.0%</td>
                
-                <td>9.4%</td>
+                <td>9.8%</td>
+               
+                <td>-8.8%</td>
+               
+                <td>-3.8%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>timeout rate</td>
                
                 <td>1.4%</td>
+               
+                <td>-17.6%</td>
+               
+                <td>-12.5%</td>
+               
+                <td>-6.7%</td>
+               
+              </tr>
+               
+        </mj-table>
+        </mj-column>
+       </mj-section>
+      
+       <!-- HEADER -->
+       <mj-section>
+        <mj-column>
+         <mj-text>RTB-Matomy</mj-text>
+        </mj-column>
+       </mj-section>
+
+       <!-- Body -->
+       <mj-section>
+        <mj-column>
+         <mj-table >
+             <tr>
+               
+                  <th>metric</th>
+               
+                  <th>2017-03-30</th>
+               
+                  <th>change agst prior day</th>
+               
+                  <th>change agst 4-day avg</th>
+               
+                  <th>change agst 7-day avg</th>
+               
+             </tr>
+
+             
+              <tr>
+               
+                <td>revenue</td>
+               
+                <td>&#36;788</td>
+               
+                <td>-42.1%</td>
+               
+                <td>-42.1%</td>
+               
+                <td>-47.5%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer</td>
+               
+                <td>2,565M</td>
+               
+                <td>1.4%</td>
+               
+                <td>1.9%</td>
+               
+                <td>5.7%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>18.0%</td>
+               
+                <td>3.4%</td>
+               
+                <td>8.4%</td>
+               
+                <td>12.5%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offermatch rate</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>bid rate</td>
+               
+                <td>4.1%</td>
+               
+                <td>-24.1%</td>
+               
+                <td>-21.2%</td>
+               
+                <td>-24.1%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>block rate</td>
+               
+                <td>3.2%</td>
+               
+                <td>-11.1%</td>
+               
+                <td>-22.0%</td>
+               
+                <td>-33.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>win rate</td>
+               
+                <td>1.4%</td>
+               
+                <td>-22.2%</td>
+               
+                <td>-26.3%</td>
+               
+                <td>-26.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>revcpm</td>
+               
+                <td>&#36;0.52</td>
+               
+                <td>-8.8%</td>
+               
+                <td>-1.9%</td>
                
                 <td>-10.3%</td>
                
@@ -940,15 +912,43 @@
             
               <tr>
                
+                <td>costcpm</td>
+               
+                <td>&#36;0.36</td>
+               
+                <td>-10.0%</td>
+               
+                <td>-5.3%</td>
+               
+                <td>-14.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>margin</td>
+               
+                <td>30.3%</td>
+               
+                <td>4.5%</td>
+               
+                <td>4.1%</td>
+               
+                <td>9.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
                 <td>timeout rate</td>
                
-                <td>0.8%</td>
+                <td>1.0%</td>
                
-                <td>100.0%</td>
+                <td>25.0%</td>
                
-                <td>60.0%</td>
+                <td>11.1%</td>
                
-                <td>-20.0%</td>
+                <td>25.0%</td>
                
               </tr>
                
