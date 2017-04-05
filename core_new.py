@@ -9,6 +9,7 @@ import functools
 import json
  
 from email_alert import EmailAlert
+from insights import Insights 
 
 pd.set_option('max_colwidth',180)
 pd.set_option('display.max_rows', 500)
@@ -20,8 +21,14 @@ np.random.seed(42)
 data_directory = ""
 
 query = {
-	'DSP': "dsp_query_new.sql"
+	'DSP': "dsp_query_new.sql",
+	'DSP-PUB': "dsp-pub.sql",
+	'LANDINGPAGE': "dsp-landingpage.sql",
+	'DC': "dsp-dc.sql",
+	'CHANNEL': "dsp-channel.sql"
 }
+
+dsps = []
 
 me = 'ssu@pulsepoint.com'
 
@@ -45,11 +52,18 @@ def unit_mm(data):
 def run_app(sql, fname):
 	df = load_data(sql, fname)
 	processed_data = run_data(df)
-	output_email(processed_data)
+	email(processed_data)
 
-def load_data(sql, fname):
+def load_data(sql, fname, param=None, param_num=None):
 	with open(sql) as f:
-		query = f.read().strip()
+		if param is None:
+			query = f.read().strip()
+		elif param_num == 1:
+			query = f.read().strip() % (param)
+		elif param_num == 2:
+			query = f.read().strip() % (param, param)
+		else: 
+			print("incorrect param_number")
 	filename = os.path.join(data_directory, "{}_{}.pkl".format(fname, datetime.datetime.now().strftime("%Y%m%d")))
 	if os.path.exists(filename) is False:
 		df = pd.read_sql(query, create_engine("impala://impala.pulse.prod"))
@@ -84,11 +98,16 @@ def run_data(df):
 	new_df = format_data(df[AllCrit])
 	return new_df
 
-def output_email(df):
+def transform_data(df):
 	day = df['day'][0]
 	accts = pd.Series(df.index)
 	headers = []
 	value = []
+
+	acctid = df['buyerid'].T.drop_duplicates().T
+	acctid_array = np.array(acctid['buyerid'])
+	acctids = ', '.join([str(i) for i in acctid_array])
+
 	yesterday_cols = ['revenue' , 'offer' , 'offerrate' , 'offermatchrate' , 'bidrate' , 'blockrate' , 'winrate' , 'revcpm'
 	                     , 'costcpm' , 'margin' , 'timeoutrate']
 	yesterday = df[yesterday_cols]
@@ -110,9 +129,20 @@ def output_email(df):
 		val = data['data']
 		headers.append(header)
 		value.append(val)
-	html = EmailAlert('dsp', 'input.mjml', accts, headers, value)	
-	html.render_template()
-	html.send_email('Testing', me, you)
+	return acctids, accts, headers, value
+
+def get_topdrop(acctids, sql, fname, dimension, difference, delta, headerstring):
+	data = load_data(sql, fname, acctids, 2)
+	dimensions = Insights(acctids, data)
+	dimensions.process_topdrop(dimension, difference, delta, headerstring)
+
+def email(df):
+	acctids, accts, headers, value = transform_data(df)
+	pub = get_topdrop(acctids, query['DSP-PUB'], 'dsp-pub', 'publisher','rev_difference', 'rev_delta', 'Top drop pubs: ')
+	print(pub)
+	#html = EmailAlert('dsp', 'input.mjml', accts, headers, value)	
+	#html.render_template()
+	#html.send_email('Testing', me, you)
 
 
 def format_data(df):
@@ -138,3 +168,4 @@ def df_json(df):
 	json_str = df.to_json(orient='split')
 	data = json.loads(json_str)
 	return data 
+

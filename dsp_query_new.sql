@@ -460,8 +460,8 @@ LEFT JOIN
         ON
             am.id = ac.AccountManagerId
         WHERE
-            ma.statusid = 1
-        AND (
+            --ma.statusid = 1 AND
+            (
                 ma.accountname NOT LIKE '%test%')
         AND (
                 ma.accountname NOT LIKE '%Test%')
