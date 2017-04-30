@@ -9,7 +9,7 @@ import functools
 import json
  
 from email_alert import EmailAlert
-from insights import Insights 
+#from insights import Insights 
 
 pd.set_option('max_colwidth',180)
 pd.set_option('display.max_rows', 500)
@@ -129,20 +129,20 @@ def transform_data(df):
 		val = data['data']
 		headers.append(header)
 		value.append(val)
-	return acctids, accts, headers, value
+	return acctid_array, accts, headers, value
 
-def get_topdrop(acctids, sql, fname, dimension, difference, delta, headerstring):
-	data = load_data(sql, fname, acctids, 2)
-	dimensions = Insights(acctids, data)
-	dimensions.process_topdrop(dimension, difference, delta, headerstring)
 
 def email(df):
-	acctids, accts, headers, value = transform_data(df)
-	pub = get_topdrop(acctids, query['DSP-PUB'], 'dsp-pub', 'publisher','rev_difference', 'rev_delta', 'Top drop pubs: ')
-	print(pub)
-	#html = EmailAlert('dsp', 'input.mjml', accts, headers, value)	
-	#html.render_template()
-	#html.send_email('Testing', me, you)
+	acctid_array, accts, headers, value = transform_data(df)
+
+	pub = get_topdrop(acctid_array, query['DSP-PUB'], 'dsp-pub', 2, 'publisher','rev_difference', 'rev_delta', '* Top drop pubs: ')
+	landingpages = get_topdrop(acctid_array, query['LANDINGPAGE'], 'dsp_landingpage', 1, 'landingpagedomain', 'difference', 'delta', '* Top drop campaigns: ')
+	datacenters = get_topdrop(acctid_array, query['DC'], 'dsp_dc', 1, 'dc', 'difference', 'delta', '* Change by DataCenter: ')
+	channels = get_topdrop(acctid_array, query['CHANNEL'], 'dsp_channel', 1, 'channel', 'difference', 'delta', '* Change by Channel: ')
+
+	html = EmailAlert('dsp', 'input.mjml', accts, pub, landingpages, datacenters, channels, headers, value)	
+	html.render_template()
+	html.send_email('Testing', me, you)
 
 
 def format_data(df):
@@ -168,4 +168,30 @@ def df_json(df):
 	json_str = df.to_json(orient='split')
 	data = json.loads(json_str)
 	return data 
+
+
+def get_topdrop(acctid, sql, fname, param_num, dimension, difference, delta, strheader):
+	acctids = ', '.join([str(i) for i in acctid])
+	df = load_data(sql, fname, acctids, param_num)
+	res = []
+	for acct in acctid:
+		top = df[df['buyerid'] == acct]
+		top = top.sort_values(by = [difference], ascending = [True])
+		top['difference_str'] = top[difference].apply(lambda x: int(round(x))).apply(str)
+		top['num_sign'] = top['difference_str'].apply(lambda x: '-' if x.startswith( '-' ) else '')
+		top["difference_abs"] = top[difference].abs()
+		top['difference_abs_formatted'] = top['difference_abs'].apply(lambda x: '&#36;' + '{:,}'.format(int(round(x))))
+		top[difference] = top['num_sign'] + top['difference_abs_formatted']
+		selectedCols = top[[dimension, difference, delta]]
+		selectedCols[delta] = np.vectorize(percent)(selectedCols[delta])
+		if len(top)>= 3:
+			top3 = selectedCols[:3]
+		else:
+			top3 = selectedCols
+		string = strheader
+		for i in range(len(top3)):
+			val = ', '.join([str(i) for i in top3.iloc[i]])
+			string = string + val + "; "
+		res.append(string)
+	return res 
 
