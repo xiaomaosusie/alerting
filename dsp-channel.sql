@@ -14,7 +14,7 @@ from
         ( sum(case when day = date_sub(from_unixtime(iudf.det_unix_timestamp(), 'yyyy-MM-dd'), 1) then revenue else 0 end) - 
         sum(case when day = date_sub(from_unixtime(iudf.det_unix_timestamp(), 'yyyy-MM-dd'), 2) then revenue else 0 end) ) as difference
 from rtb.rtbspenddaily
-where day >= date_sub(from_unixtime(iudf.det_unix_timestamp(), 'yyyy-MM-dd'), 2)
+where day >= to_date(date_sub(now(), 2))
         and day < to_date(from_unixtime(iudf.det_unix_timestamp()))
       and buyerid in (%s)
 group by 1,2) spend

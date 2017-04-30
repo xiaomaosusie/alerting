@@ -39,7 +39,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text>{{accts[i]}}</mj-text>
+         <mj-text><h4>{{accts[i]}}</h4>{{msg1[i]}}<br>{{msg2[i]}}<br>{{msg3[i]}}<br>{{msg4[i]}}</mj-text>
         </mj-column>
        </mj-section>
 

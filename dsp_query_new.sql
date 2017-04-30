@@ -94,7 +94,7 @@ FROM
                 FROM
                     rtb.RTBKpiDaily
                 WHERE
-                    DAY = date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 1)
+                    DAY = to_date(date_sub(now(), 1))
                 GROUP BY
                     1,2) a
         LEFT JOIN
@@ -126,7 +126,7 @@ FROM
                 FROM
                     rtb.RTBSpendDaily
                 WHERE
-                    DAY = date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 1)
+                    DAY = to_date(date_sub(now(), 1))
                 GROUP BY
                     1,2) b
         ON
@@ -140,7 +140,7 @@ FROM
                 FROM
                     rpt.kpidaily
                 WHERE
-                    DAY = date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 1)
+                    DAY = to_date(date_sub(now(), 1))
                 GROUP BY
                     1) pass
         ON
@@ -187,7 +187,7 @@ LEFT JOIN
                 FROM
                     rtb.RTBKpiDaily
                 WHERE
-                    DAY = date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 2)
+                    DAY = to_date(date_sub(now(), 2))
                 GROUP BY
                     1,2) a
         LEFT JOIN
@@ -219,7 +219,7 @@ LEFT JOIN
                 FROM
                     rtb.RTBSpendDaily
                 WHERE
-                    DAY = date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 2)
+                    DAY = to_date(date_sub(now(), 2))
                 GROUP BY
                     1,2) b
         ON
@@ -233,7 +233,7 @@ LEFT JOIN
                 FROM
                     rpt.kpidaily
                 WHERE
-                    DAY = date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 2)
+                    DAY = to_date(date_sub(now(), 2))
                 GROUP BY
                     1) pass
         ON
@@ -283,7 +283,7 @@ LEFT JOIN
                 FROM
                     rtb.RTBKpiDaily
                 WHERE
-                    DAY >= date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 4)
+                    DAY >= to_date(date_sub(now(), 4))
                 AND DAY < to_date(from_unixtime(iudf.det_unix_timestamp()))
                 GROUP BY
                     1,2) a
@@ -316,7 +316,7 @@ LEFT JOIN
                 FROM
                     rtb.RTBSpendDaily
                 WHERE
-                    DAY >= date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 4)
+                    DAY >= to_date(date_sub(now(), 4))
                 AND DAY < to_date(from_unixtime(iudf.det_unix_timestamp()))
                 GROUP BY
                     1,2) b
@@ -331,7 +331,7 @@ LEFT JOIN
                 FROM
                     rpt.kpidaily
                 WHERE
-                    DAY >= date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 4)
+                    DAY >= to_date(date_sub(now(), 4))
                 AND DAY < to_date(from_unixtime(iudf.det_unix_timestamp()))
                 GROUP BY
                     1) pass
@@ -384,7 +384,7 @@ LEFT JOIN
                 FROM
                     rtb.RTBKpiDaily
                 WHERE
-                    DAY >= date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 7)
+                    DAY >= to_date(date_sub(now(), 7))
                 AND DAY < to_date(from_unixtime(iudf.det_unix_timestamp()))
                 GROUP BY
                     1,2) a
@@ -417,7 +417,7 @@ LEFT JOIN
                 FROM
                     rtb.RTBSpendDaily
                 WHERE
-                    DAY >= date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 7)
+                    DAY >= to_date(date_sub(now(), 7))
                 AND DAY < to_date(from_unixtime(iudf.det_unix_timestamp()))
                 GROUP BY
                     1,2) b
@@ -432,7 +432,7 @@ LEFT JOIN
                 FROM
                     rpt.kpidaily
                 WHERE
-                    DAY >= date_sub(to_date(FROM_UNIXTIME(IUDF.DET_UNIX_TIMESTAMP())), 7)
+                    DAY >= to_date(date_sub(now(), 7))
                 AND DAY < to_date(from_unixtime(iudf.det_unix_timestamp()))
                 GROUP BY
                     1) pass
