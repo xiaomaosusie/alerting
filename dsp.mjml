@@ -39,7 +39,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text><h4>RTB-The-Trade-Desk</h4>* Top drop pubs: RTS-TremorVideo, -&#36;1,389, -0.4%; RTS-Sonobi, -&#36;707, -0.2%; RTS-MobFox, -&#36;440, -0.3%; <br>* Top drop campaigns: bleeckerstreetmedia.com, -&#36;1,421, -0.5%; bevespi.com, -&#36;693, -0.8%; mybreo.com, -&#36;363, -0.9%; <br>* Change by DataCenter: LGA, -&#36;3,395, -0.1%; SJC, -&#36;803, -0.1%; AMS, -&#36;614, -0.3%; <br>* Change by Channel: display, -&#36;2,838, -0.1%; vieo, -&#36;1,975, -0.2%; </mj-text>
+         <mj-text><h4>RTB-MediaMath</h4>* Top drop pubs: <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-MediaMath&publisher=RTS-Sonobi' >RTS-Sonobi</a>, -&#36;264, -20.2%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-MediaMath&publisher=Locaat LLC' >Locaat LLC</a>, -&#36;253, -45.7%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-MediaMath&publisher=Underdog Media' >Underdog Media</a>, -&#36;184, -23.8%;  <br>* Top drop campaigns: walmart.com, -&#36;331, -74.6%;  samsclub.com, -&#36;311, -60.2%;  pampers.com, -&#36;269, -72.2%;  <br>* Change by DataCenter: SJC, -&#36;560, -16.4%;  LGA, -&#36;367, -2.1%;  AMS, &#36;298, 6.8%;  <br>* Change by Channel: display, -&#36;482, -2.4%;  video, -&#36;147, -2.5%;  </mj-text>
         </mj-column>
        </mj-section>
 
@@ -51,7 +51,7 @@
                
                   <th>metric</th>
                
-                  <th>2017-04-29</th>
+                  <th>2017-05-04</th>
                
                   <th>change agst prior day</th>
                
@@ -66,13 +66,13 @@
                
                 <td>revenue</td>
                
-                <td>&#36;35,835</td>
+                <td>&#36;24,941</td>
                
-                <td>-11.8%</td>
+                <td>-2.5%</td>
                
-                <td>-10.6%</td>
+                <td>1.5%</td>
                
-                <td>-14.9%</td>
+                <td>-8.2%</td>
                
               </tr>
             
@@ -80,41 +80,41 @@
                
                 <td>offer</td>
                
-                <td>10,502M</td>
+                <td>8,083M</td>
+               
+                <td>4.5%</td>
+               
+                <td>2.1%</td>
+               
+                <td>5.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>44.2%</td>
+               
+                <td>2.6%</td>
+               
+                <td>1.1%</td>
                
                 <td>2.8%</td>
                
-                <td>4.0%</td>
-               
-                <td>7.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>60.6%</td>
-               
-                <td>3.9%</td>
-               
-                <td>4.3%</td>
-               
-                <td>7.6%</td>
-               
               </tr>
             
               <tr>
                
                 <td>offermatch rate</td>
                
-                <td>17.0%</td>
+                <td>37.0%</td>
                
-                <td>-10.5%</td>
+                <td>2.8%</td>
                
-                <td>-10.5%</td>
+                <td>5.7%</td>
                
-                <td>-15.0%</td>
+                <td>12.1%</td>
                
               </tr>
             
@@ -122,13 +122,13 @@
                
                 <td>bid rate</td>
                
-                <td>5.8%</td>
+                <td>26.8%</td>
                
-                <td>11.5%</td>
+                <td>-7.3%</td>
                
-                <td>13.7%</td>
+                <td>-8.8%</td>
                
-                <td>16.0%</td>
+                <td>-15.7%</td>
                
               </tr>
             
@@ -136,381 +136,13 @@
                
                 <td>block rate</td>
                
-                <td>21.2%</td>
+                <td>23.3%</td>
                
-                <td>7.6%</td>
+                <td>7.9%</td>
                
-                <td>9.8%</td>
+                <td>-11.7%</td>
                
-                <td>21.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>2.3%</td>
-               
-                <td>-20.7%</td>
-               
-                <td>-23.3%</td>
-               
-                <td>-30.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;2.57</td>
-               
-                <td>-3.4%</td>
-               
-                <td>-1.2%</td>
-               
-                <td>-1.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;1.69</td>
-               
-                <td>-3.4%</td>
-               
-                <td>-2.3%</td>
-               
-                <td>-2.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>34.5%</td>
-               
-                <td>0.9%</td>
-               
-                <td>2.4%</td>
-               
-                <td>3.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>5.3%</td>
-               
-                <td>1.9%</td>
-               
-                <td>1.9%</td>
-               
-                <td>1.9%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text><h4>RTB-RhythmOne</h4>* Top drop pubs: Kumma, -&#36;1,249, -1.0%; WP Media LLC, -&#36;87, -1.0%; SohoWomen.com, -&#36;44, -1.0%; <br>* Top drop campaigns: grainger.com, -&#36;165, -0.9%; att.com, -&#36;59, -0.4%; paypal.com, -&#36;44, -0.5%; <br>* Change by DataCenter: LGA, -&#36;451, -0.1%; SJC, -&#36;200, -0.2%; AMS, &#36;61, 0.1%; <br>* Change by Channel: display, -&#36;833, -0.1%; N/A, &#36;243, 1.3%; </mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-04-29</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;5,388</td>
-               
-                <td>-9.9%</td>
-               
-                <td>1.2%</td>
-               
-                <td>-1.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>3,853M</td>
-               
-                <td>-3.0%</td>
-               
-                <td>-6.6%</td>
-               
-                <td>-15.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>22.2%</td>
-               
-                <td>-2.2%</td>
-               
-                <td>-6.3%</td>
-               
-                <td>-15.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>29.0%</td>
-               
-                <td>-3.3%</td>
-               
-                <td>0.0%</td>
-               
-                <td>3.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>19.7%</td>
-               
-                <td>13.2%</td>
-               
-                <td>20.9%</td>
-               
-                <td>27.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>19.4%</td>
-               
-                <td>-0.5%</td>
-               
-                <td>-1.0%</td>
-               
-                <td>7.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>0.7%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;1.04</td>
-               
-                <td>-11.1%</td>
-               
-                <td>-7.1%</td>
-               
-                <td>-2.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.69</td>
-               
-                <td>-14.8%</td>
-               
-                <td>-10.4%</td>
-               
-                <td>-8.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>33.2%</td>
-               
-                <td>6.8%</td>
-               
-                <td>6.4%</td>
-               
-                <td>10.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>1.6%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-15.8%</td>
-               
-                <td>-27.3%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text><h4>RTB-Convert-Media</h4>* Top drop pubs: Yieldlove 3, -&#36;65, -0.7%; BidMonitor 2, -&#36;49, -0.2%; Sortable, -&#36;34, -0.4%; <br>* Top drop campaigns: hawaiianairlines.com, -&#36;142, -0.2%; truereligion.com, -&#36;97, -0.1%; comohotels.com, -&#36;3, -0.3%; <br>* Change by DataCenter: LGA, -&#36;232, -0.1%; AMS, -&#36;86, -0.2%; SJC, &#36;153, 0.4%; <br>* Change by Channel: display, -&#36;165, -0.1%; </mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-04-29</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;2,296</td>
-               
-                <td>-6.7%</td>
-               
-                <td>-11.8%</td>
-               
-                <td>-9.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>4,017M</td>
-               
-                <td>5.6%</td>
-               
-                <td>1.9%</td>
-               
-                <td>-2.4%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>23.2%</td>
-               
-                <td>6.9%</td>
-               
-                <td>2.2%</td>
-               
-                <td>-2.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>15.0%</td>
-               
-                <td>-6.2%</td>
-               
-                <td>-6.2%</td>
-               
-                <td>-6.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>25.2%</td>
-               
-                <td>-13.4%</td>
-               
-                <td>-10.0%</td>
-               
-                <td>-4.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>18.0%</td>
-               
-                <td>-11.8%</td>
-               
-                <td>-15.5%</td>
-               
-                <td>-20.4%</td>
+                <td>-22.6%</td>
                
               </tr>
             
@@ -524,191 +156,7 @@
                
                 <td>0.0%</td>
                
-                <td>20.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;0.39</td>
-               
-                <td>-2.5%</td>
-               
-                <td>-2.5%</td>
-               
-                <td>-9.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.27</td>
-               
-                <td>-6.9%</td>
-               
-                <td>-3.6%</td>
-               
-                <td>-10.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>29.9%</td>
-               
-                <td>4.2%</td>
-               
-                <td>1.7%</td>
-               
-                <td>1.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>1.1%</td>
-               
-                <td>-38.9%</td>
-               
-                <td>-38.9%</td>
-               
-                <td>-38.9%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text><h4>RTB-OwnerIQ</h4>* Top drop pubs: BluMartian, -&#36;415, -0.4%; RTS-ConvertMedia, -&#36;29, -0.6%; DistroScale, -&#36;19, -0.5%; <br>* Top drop campaigns: us.mentos.com, -&#36;479, -0.3%; puritan.com, -&#36;20, -0.3%; acuity.com, -&#36;7, -0.5%; <br>* Change by DataCenter: LGA, -&#36;252, -0.1%; SJC, -&#36;70, -0.2%; <br>* Change by Channel: vieo, -&#36;471, -0.3%; display, &#36;149, 0.3%; </mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-04-29</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;1,814</td>
-               
-                <td>-15.0%</td>
-               
-                <td>-7.8%</td>
-               
-                <td>-20.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>1,800M</td>
-               
-                <td>3.7%</td>
-               
-                <td>0.4%</td>
-               
-                <td>-8.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>10.4%</td>
-               
-                <td>5.1%</td>
-               
-                <td>1.0%</td>
-               
-                <td>-8.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>31.0%</td>
-               
-                <td>-3.1%</td>
-               
-                <td>-6.1%</td>
-               
-                <td>-3.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>0.4%</td>
-               
                 <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-33.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>8.7%</td>
-               
-                <td>-8.4%</td>
-               
-                <td>8.7%</td>
-               
-                <td>-16.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>11.4%</td>
-               
-                <td>-20.8%</td>
-               
-                <td>-9.5%</td>
-               
-                <td>44.3%</td>
                
               </tr>
             
@@ -718,11 +166,11 @@
                
                 <td>&#36;1.98</td>
                
-                <td>-16.8%</td>
+                <td>0.0%</td>
                
-                <td>-10.0%</td>
+                <td>7.0%</td>
                
-                <td>-16.5%</td>
+                <td>5.3%</td>
                
               </tr>
             
@@ -730,13 +178,13 @@
                
                 <td>costcpm</td>
                
-                <td>&#36;2.12</td>
+                <td>&#36;1.38</td>
                
-                <td>-16.2%</td>
+                <td>0.0%</td>
                
-                <td>-4.9%</td>
+                <td>8.7%</td>
                
-                <td>-8.6%</td>
+                <td>8.7%</td>
                
               </tr>
             
@@ -744,13 +192,13 @@
                
                 <td>margin</td>
                
-                <td>-7.2%</td>
+                <td>30.3%</td>
                
-                <td>0.0%</td>
+                <td>0.7%</td>
                
-                <td>0.0%</td>
+                <td>-3.5%</td>
                
-                <td>-500.0%</td>
+                <td>-5.6%</td>
                
               </tr>
             
@@ -758,13 +206,13 @@
                
                 <td>timeout rate</td>
                
-                <td>0.5%</td>
+                <td>4.9%</td>
                
-                <td>0.0%</td>
+                <td>-9.3%</td>
                
-                <td>0.0%</td>
+                <td>6.5%</td>
                
-                <td>-28.6%</td>
+                <td>25.6%</td>
                
               </tr>
                
@@ -775,7 +223,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text><h4>RTB-metanetworks</h4>* Top drop pubs: Sortable, -&#36;124, -0.7%; RTS-WideOrbit, -&#36;35, -0.3%; LanistaConceptsLLC3, -&#36;29, -0.8%; <br>* Top drop campaigns: mundo.com, -&#36;37, -0.1%; walmart.com, -&#36;36, -0.1%; bestday.com, -&#36;34, -0.1%; <br>* Change by DataCenter: LGA, -&#36;92, -0.1%; SJC, -&#36;62, -0.2%; AMS, -&#36;10, -0.1%; <br>* Change by Channel: display, -&#36;164, -0.1%; </mj-text>
+         <mj-text><h4>RTB-LiquidM</h4>* Top drop pubs: <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-LiquidM&publisher=RTS-Axonix' >RTS-Axonix</a>, -&#36;316, -95.0%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-LiquidM&publisher=RTS-SmartAd' >RTS-SmartAd</a>, -&#36;227, -36.8%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-LiquidM&publisher=RTS-MobFox' >RTS-MobFox</a>, -&#36;22, -72.2%;  <br>* Top drop campaigns: cartier.fr, -&#36;550, -93.9%;  carrier.com, -&#36;324, -100.0%;  takethegre.com, -&#36;24, -79.8%;  <br>* Change by DataCenter: LGA, -&#36;377, -66.5%;  AMS, -&#36;200, -28.4%;  <br>* Change by Channel: display, -&#36;577, -45.4%;  </mj-text>
         </mj-column>
        </mj-section>
 
@@ -787,7 +235,7 @@
                
                   <th>metric</th>
                
-                  <th>2017-04-29</th>
+                  <th>2017-05-04</th>
                
                   <th>change agst prior day</th>
                
@@ -802,13 +250,13 @@
                
                 <td>revenue</td>
                
-                <td>&#36;1,347</td>
+                <td>&#36;695</td>
                
-                <td>-10.9%</td>
+                <td>-45.4%</td>
                
-                <td>-17.9%</td>
+                <td>5.1%</td>
                
-                <td>-17.5%</td>
+                <td>12.8%</td>
                
               </tr>
             
@@ -816,13 +264,13 @@
                
                 <td>offer</td>
                
-                <td>3,170M</td>
+                <td>1,950M</td>
                
-                <td>-7.2%</td>
+                <td>0.7%</td>
                
-                <td>6.8%</td>
+                <td>1.5%</td>
                
-                <td>-2.3%</td>
+                <td>-9.3%</td>
                
               </tr>
             
@@ -830,13 +278,13 @@
                
                 <td>offer rate</td>
                
-                <td>18.3%</td>
+                <td>10.7%</td>
                
-                <td>-6.2%</td>
+                <td>-0.9%</td>
                
-                <td>7.0%</td>
+                <td>0.9%</td>
                
-                <td>-1.6%</td>
+                <td>-10.8%</td>
                
               </tr>
             
@@ -858,13 +306,13 @@
                
                 <td>bid rate</td>
                
-                <td>11.9%</td>
+                <td>5.8%</td>
                
-                <td>-5.6%</td>
+                <td>-40.8%</td>
                
-                <td>-10.5%</td>
+                <td>-26.6%</td>
                
-                <td>-5.6%</td>
+                <td>-35.6%</td>
                
               </tr>
             
@@ -872,13 +320,13 @@
                
                 <td>block rate</td>
                
-                <td>13.3%</td>
+                <td>5.6%</td>
                
-                <td>-10.1%</td>
+                <td>36.6%</td>
                
-                <td>-1.5%</td>
+                <td>-69.7%</td>
                
-                <td>2.3%</td>
+                <td>-85.9%</td>
                
               </tr>
             
@@ -886,13 +334,13 @@
                
                 <td>win rate</td>
                
-                <td>0.5%</td>
+                <td>1.0%</td>
                
-                <td>-16.7%</td>
+                <td>-9.1%</td>
                
-                <td>-28.6%</td>
+                <td>11.1%</td>
                
-                <td>-28.6%</td>
+                <td>25.0%</td>
                
               </tr>
             
@@ -900,13 +348,13 @@
                
                 <td>revcpm</td>
                
-                <td>&#36;0.67</td>
+                <td>&#36;0.63</td>
                
-                <td>8.1%</td>
+                <td>1.6%</td>
                
-                <td>9.8%</td>
+                <td>28.6%</td>
                
-                <td>21.8%</td>
+                <td>61.5%</td>
                
               </tr>
             
@@ -914,13 +362,13 @@
                
                 <td>costcpm</td>
                
-                <td>&#36;0.46</td>
+                <td>&#36;0.51</td>
                
-                <td>9.5%</td>
+                <td>24.4%</td>
                
-                <td>9.5%</td>
+                <td>41.7%</td>
                
-                <td>21.1%</td>
+                <td>75.9%</td>
                
               </tr>
             
@@ -928,13 +376,13 @@
                
                 <td>margin</td>
                
-                <td>30.4%</td>
+                <td>19.5%</td>
                
-                <td>-6.7%</td>
+                <td>-43.0%</td>
                
-                <td>-2.6%</td>
+                <td>-28.0%</td>
                
-                <td>-0.3%</td>
+                <td>-22.6%</td>
                
               </tr>
             
@@ -942,13 +390,13 @@
                
                 <td>timeout rate</td>
                
-                <td>0.9%</td>
+                <td>2.0%</td>
                
-                <td>0.0%</td>
+                <td>5.3%</td>
                
-                <td>-57.1%</td>
+                <td>-31.0%</td>
                
-                <td>-35.7%</td>
+                <td>-48.7%</td>
                
               </tr>
                
@@ -959,7 +407,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text><h4>RTB-Beeswax</h4>* Top drop pubs: Ivemedia, -&#36;123, -0.4%; CrunchMind, -&#36;74, -0.7%; Adsolut, -&#36;39, -0.9%; <br>* Top drop campaigns: cricbuzz.com, -&#36;309, -1.0%; brentbrowntoyota.com, -&#36;53, -1.0%; autoforzamotors.com, -&#36;35, -1.0%; <br>* Change by DataCenter: LGA, -&#36;228, -0.3%; SJC, -&#36;204, -0.4%; AMS, &#36;0, -0.0%; <br>* Change by Channel: display, -&#36;418, -0.3%; vieo, -&#36;14, -0.3%; N/A, &#36;0, 0.0%; </mj-text>
+         <mj-text><h4>RTB-EQ-Works</h4>* Top drop pubs: <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-EQ-Works&publisher=RTS-DistrictM' >RTS-DistrictM</a>, -&#36;46, -59.2%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-EQ-Works&publisher=RTS-Sonobi' >RTS-Sonobi</a>, -&#36;33, -46.0%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-EQ-Works&publisher=RTS-sovrn' >RTS-sovrn</a>, -&#36;32, -42.3%;  <br>* Top drop campaigns: visitniagaracanada.com, -&#36;27, -54.6%;  calgaryzoo.com, -&#36;24, -39.2%;  td.com, -&#36;15, -35.4%;  <br>* Change by DataCenter: LGA, -&#36;128, -50.0%;  SJC, -&#36;92, -45.3%;  <br>* Change by Channel: display, -&#36;220, -47.9%;  </mj-text>
         </mj-column>
        </mj-section>
 
@@ -971,7 +419,7 @@
                
                   <th>metric</th>
                
-                  <th>2017-04-29</th>
+                  <th>2017-05-04</th>
                
                   <th>change agst prior day</th>
                
@@ -986,13 +434,13 @@
                
                 <td>revenue</td>
                
-                <td>&#36;885</td>
+                <td>&#36;239</td>
                
-                <td>-32.9%</td>
+                <td>-47.9%</td>
                
-                <td>-32.2%</td>
+                <td>-45.8%</td>
                
-                <td>-49.3%</td>
+                <td>-52.5%</td>
                
               </tr>
             
@@ -1000,13 +448,13 @@
                
                 <td>offer</td>
                
-                <td>7,499M</td>
+                <td>377M</td>
                
-                <td>-4.9%</td>
+                <td>-2.3%</td>
                
-                <td>-6.8%</td>
+                <td>-7.8%</td>
                
-                <td>-12.3%</td>
+                <td>-2.5%</td>
                
               </tr>
             
@@ -1014,13 +462,13 @@
                
                 <td>offer rate</td>
                
-                <td>43.3%</td>
+                <td>2.1%</td>
                
-                <td>-3.8%</td>
+                <td>0.0%</td>
                
-                <td>-6.5%</td>
+                <td>-8.7%</td>
                
-                <td>-12.0%</td>
+                <td>-4.5%</td>
                
               </tr>
             
@@ -1030,591 +478,39 @@
                
                 <td>30.0%</td>
                
-                <td>-9.1%</td>
-               
-                <td>-9.1%</td>
-               
-                <td>-6.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>8.8%</td>
-               
-                <td>10.0%</td>
-               
-                <td>-2.2%</td>
-               
-                <td>-22.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>5.4%</td>
-               
-                <td>68.8%</td>
-               
-                <td>54.3%</td>
-               
-                <td>68.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>0.4%</td>
-               
-                <td>-42.9%</td>
-               
-                <td>-33.3%</td>
-               
-                <td>-20.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;0.35</td>
-               
-                <td>16.7%</td>
-               
-                <td>6.1%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.26</td>
-               
-                <td>8.3%</td>
-               
-                <td>4.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>23.6%</td>
-               
-                <td>19.2%</td>
-               
-                <td>6.3%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>0.6%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-14.3%</td>
-               
-                <td>-40.0%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text><h4>RTB-Matomy</h4>* Top drop pubs: RTS-Atomx, -&#36;60, -0.2%; SHMOOP.COM-HB, -&#36;44, -0.7%; MULTIPLY, -&#36;26, -0.5%; <br>* Top drop campaigns: guid.guru, -&#36;185, -0.2%; companion.ws, -&#36;1, -0.0%; trip4me.info, -&#36;1, -0.3%; <br>* Change by DataCenter: LGA, -&#36;173, -0.2%; <br>* Change by Channel: display, -&#36;173, -0.2%; </mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-04-29</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;828</td>
-               
-                <td>-17.3%</td>
-               
-                <td>-18.7%</td>
-               
-                <td>-20.8%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>3,407M</td>
-               
-                <td>-1.0%</td>
-               
-                <td>-1.3%</td>
-               
-                <td>-1.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>19.7%</td>
-               
-                <td>0.5%</td>
-               
-                <td>-1.0%</td>
-               
-                <td>-0.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
                 <td>0.0%</td>
                
                 <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>2.9%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-12.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>13.4%</td>
-               
-                <td>8.9%</td>
-               
-                <td>10.7%</td>
-               
-                <td>63.4%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>win rate</td>
-               
-                <td>1.2%</td>
-               
-                <td>-14.3%</td>
-               
-                <td>-14.3%</td>
-               
-                <td>-7.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;0.72</td>
-               
-                <td>2.9%</td>
-               
-                <td>-2.7%</td>
-               
-                <td>1.4%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;0.42</td>
-               
-                <td>0.0%</td>
-               
-                <td>-6.7%</td>
-               
-                <td>-2.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>41.2%</td>
-               
-                <td>3.5%</td>
-               
-                <td>7.0%</td>
-               
-                <td>4.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
-               
-                <td>1.0%</td>
-               
-                <td>-9.1%</td>
-               
-                <td>0.0%</td>
-               
-                <td>-9.1%</td>
-               
-              </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text><h4>RTB-EQ-Works</h4>* Top drop pubs: RTS-sovrn, -&#36;54, -0.3%; RTS-Sonobi, -&#36;30, -0.2%; District M, -&#36;17, -0.3%; <br>* Top drop campaigns: getyourtoyota.ca, -&#36;202, -0.9%; scotiahockeyclub.com, -&#36;33, -0.7%; starkeycanada.ca, -&#36;21, -0.6%; <br>* Change by DataCenter: LGA, -&#36;190, -0.4%; SJC, -&#36;42, -0.2%; <br>* Change by Channel: display, -&#36;233, -0.3%; </mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-04-29</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;515</td>
-               
-                <td>-31.1%</td>
-               
-                <td>-21.0%</td>
-               
-                <td>-18.9%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer</td>
-               
-                <td>341M</td>
-               
-                <td>0.9%</td>
-               
-                <td>-1.4%</td>
-               
-                <td>-3.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>2.0%</td>
-               
-                <td>5.3%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>28.0%</td>
-               
-                <td>-3.4%</td>
-               
-                <td>-6.7%</td>
-               
-                <td>-9.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>0.7%</td>
-               
-                <td>-46.2%</td>
-               
-                <td>-30.0%</td>
-               
-                <td>-22.2%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
                
                 <td>3.4%</td>
                
-                <td>-50.0%</td>
-               
-                <td>-30.6%</td>
-               
-                <td>-22.7%</td>
-               
               </tr>
             
               <tr>
                
-                <td>win rate</td>
-               
-                <td>13.9%</td>
-               
-                <td>3.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>4.5%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>revcpm</td>
-               
-                <td>&#36;1.46</td>
-               
-                <td>15.0%</td>
-               
-                <td>3.5%</td>
-               
-                <td>2.1%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>costcpm</td>
-               
-                <td>&#36;1.01</td>
-               
-                <td>16.1%</td>
-               
-                <td>4.1%</td>
-               
-                <td>2.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>margin</td>
-               
-                <td>30.5%</td>
-               
-                <td>-1.6%</td>
-               
-                <td>-1.9%</td>
-               
-                <td>0.3%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>timeout rate</td>
+                <td>bid rate</td>
                
                 <td>0.5%</td>
                
-                <td>0.0%</td>
-               
                 <td>-16.7%</td>
+               
+                <td>0.0%</td>
                
                 <td>-28.6%</td>
                
               </tr>
-               
-        </mj-table>
-        </mj-column>
-       </mj-section>
-      
-       <!-- HEADER -->
-       <mj-section>
-        <mj-column>
-         <mj-text><h4>RTB-Pocketmath</h4>* Top drop pubs: RTS-Tappx, -&#36;15, -0.4%; Batanga Media, -&#36;12, -0.5%; OnScroll News, -&#36;6, -0.1%; <br>* Top drop campaigns: pocketmath.com, -&#36;18, -0.9%; publix.com, -&#36;6, -0.6%; visitwv.com, -&#36;5, -0.6%; <br>* Change by DataCenter: LGA, -&#36;47, -0.2%; AMS, -&#36;9, -0.1%; SJC, &#36;24, 0.2%; <br>* Change by Channel: display, -&#36;32, -0.1%; </mj-text>
-        </mj-column>
-       </mj-section>
-
-       <!-- Body -->
-       <mj-section>
-        <mj-column>
-         <mj-table >
-             <tr>
-               
-                  <th>metric</th>
-               
-                  <th>2017-04-29</th>
-               
-                  <th>change agst prior day</th>
-               
-                  <th>change agst 4-day avg</th>
-               
-                  <th>change agst 7-day avg</th>
-               
-             </tr>
-
-             
-              <tr>
-               
-                <td>revenue</td>
-               
-                <td>&#36;493</td>
-               
-                <td>-6.1%</td>
-               
-                <td>-14.1%</td>
-               
-                <td>-14.9%</td>
-               
-              </tr>
             
               <tr>
                
-                <td>offer</td>
-               
-                <td>792M</td>
-               
-                <td>0.3%</td>
-               
-                <td>-0.1%</td>
-               
-                <td>-0.7%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>offer rate</td>
-               
-                <td>4.6%</td>
+                <td>block rate</td>
                
                 <td>2.2%</td>
                
                 <td>0.0%</td>
                
-                <td>0.0%</td>
+                <td>-12.0%</td>
                
-              </tr>
-            
-              <tr>
-               
-                <td>offermatch rate</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-                <td>0.0%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>bid rate</td>
-               
-                <td>3.7%</td>
-               
-                <td>19.4%</td>
-               
-                <td>2.8%</td>
-               
-                <td>15.6%</td>
-               
-              </tr>
-            
-              <tr>
-               
-                <td>block rate</td>
-               
-                <td>15.3%</td>
-               
-                <td>14.2%</td>
-               
-                <td>24.4%</td>
-               
-                <td>24.4%</td>
+                <td>-38.9%</td>
                
               </tr>
             
@@ -1622,13 +518,13 @@
                
                 <td>win rate</td>
                
-                <td>2.8%</td>
+                <td>9.5%</td>
                
-                <td>-12.5%</td>
+                <td>-27.5%</td>
                
-                <td>-6.7%</td>
+                <td>-29.1%</td>
                
-                <td>-12.5%</td>
+                <td>-30.1%</td>
                
               </tr>
             
@@ -1636,13 +532,13 @@
                
                 <td>revcpm</td>
                
-                <td>&#36;0.61</td>
+                <td>&#36;1.29</td>
                
-                <td>-10.3%</td>
+                <td>-16.8%</td>
                
-                <td>-9.0%</td>
+                <td>-16.2%</td>
                
-                <td>-12.9%</td>
+                <td>-11.6%</td>
                
               </tr>
             
@@ -1650,13 +546,13 @@
                
                 <td>costcpm</td>
                
-                <td>&#36;0.46</td>
+                <td>&#36;0.91</td>
                
-                <td>-6.1%</td>
+                <td>-13.3%</td>
                
-                <td>-8.0%</td>
+                <td>-14.2%</td>
                
-                <td>-11.5%</td>
+                <td>-9.9%</td>
                
               </tr>
             
@@ -1664,13 +560,13 @@
                
                 <td>margin</td>
                
-                <td>25.2%</td>
+                <td>29.6%</td>
                
-                <td>-9.0%</td>
+                <td>-7.5%</td>
                
-                <td>-4.5%</td>
+                <td>-4.8%</td>
                
-                <td>-4.5%</td>
+                <td>-4.2%</td>
                
               </tr>
             
@@ -1678,13 +574,13 @@
                
                 <td>timeout rate</td>
                
-                <td>3.5%</td>
+                <td>0.5%</td>
                
-                <td>-7.9%</td>
+                <td>25.0%</td>
                
-                <td>-5.4%</td>
+                <td>-16.7%</td>
                
-                <td>-7.9%</td>
+                <td>-16.7%</td>
                
               </tr>
                
