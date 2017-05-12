@@ -29,7 +29,7 @@ class EmailAlert(object):
 
 		# use mjml binary to render the html
 		getoutput("/Users/ssu/node_modules/.bin/mjml -r %s -o %s" % \
-			(self.filename+".mjml",self.filename+".html"))
+			(self.filename+".mjml", self.filename+".html"))
 
 	def send_email(self, subject, me, you):
 		# Create message container - the correct MIME type is multipart/alternative.

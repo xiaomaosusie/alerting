@@ -18,25 +18,33 @@ pd.set_option('display.width', 1000)
 
 np.random.seed(42)
 
-data_directory = ""
+data_directory = "C:/Users/ssu/Documents/github/alerting/"
 
 query = {
 	'DSP': "dsp_query_new.sql",
 	'DSP-PUB': "dsp-pub.sql",
 	'LANDINGPAGE': "dsp-landingpage.sql",
 	'DC': "dsp-dc.sql",
-	'CHANNEL': "dsp-channel.sql"
+	'CHANNEL': "dsp-channel.sql",
+	'BIDLOSS': "dsp-bidloss.sql"
 }
 
 dsps = []
 
+message = {
+	'top_3': 3,
+	'Tableau_dsp_pub': 'http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?'
+}
+
 me = 'ssu@pulsepoint.com'
 
-you = 'ssu@pulsepoint.com'
+you ='VXavier@pulsepoint.com, analysts@pulsepoint.com' #'VXavier@pulsepoint.com'/ analysts
 
 neg_alert_threshold = -10
+possible_cause_threshold = -10
 #pos_alert_threshold = 10
 alert_rev_cutoff = 500
+
 
 def currency(data):
 	d = '{:,}'.format(data)
@@ -52,10 +60,11 @@ def unit_mm(data):
 def run_app(sql, fname):
 	df = load_data(sql, fname)
 	processed_data = run_data(df)
-	email(processed_data)
+	formatted_data = format_data(processed_data)
+	email(formatted_data)
 
 def load_data(sql, fname, param=None, param_num=None):
-	with open(sql) as f:
+	with open(data_directory+sql) as f:
 		if param is None:
 			query = f.read().strip()
 		elif param_num == 1:
@@ -75,7 +84,7 @@ def load_data(sql, fname, param=None, param_num=None):
 def run_data(df):
 	df = df.sort_values(by = ['revenue'], ascending = [False])
 
-	df['weights'] = 1 + ((df['rev_diff_agst_pd'].abs() - df['rev_diff_agst_pd'].abs().min()) / (df['rev_diff_agst_pd'].abs().max() - df['rev_diff_agst_pd'].abs().min()))
+	df['weights'] = 1 + ((df['7davgrevenue'] - df['7davgrevenue'].min()) / (df['7davgrevenue'].max() - df['7davgrevenue'].min()))
 	df['weighted_pd_change'] = df['weights'] * df['revenue_change_agst_pd']
 	df['weighted_4d_change'] = df['weights'] * df['revenue_change_agst_4davg']
 	df['weighted_7d_change'] = df['weights'] * df['revenue_change_agst_7davg']		
@@ -94,9 +103,9 @@ def run_data(df):
 
 	CritList = [Crit1,Crit2,Crit3]
 	AllCrit = functools.reduce(lambda x,y: x | y, CritList)
+	result = df[AllCrit]
 
-	new_df = format_data(df[AllCrit])
-	return new_df
+	return result
 
 def transform_data(df):
 	day = df['day'][0]
@@ -135,14 +144,14 @@ def transform_data(df):
 def email(df):
 	acctid_array, accts, headers, value = transform_data(df)
 
-	pub = get_topdrop(acctid_array, query['DSP-PUB'], 'dsp-pub', 2, 'publisher','rev_difference', 'rev_delta', '* Top drop pubs: ')
-	landingpages = get_topdrop(acctid_array, query['LANDINGPAGE'], 'dsp_landingpage', 1, 'landingpagedomain', 'difference', 'delta', '* Top drop campaigns: ')
-	datacenters = get_topdrop(acctid_array, query['DC'], 'dsp_dc', 1, 'dc', 'difference', 'delta', '* Change by DataCenter: ')
-	channels = get_topdrop(acctid_array, query['CHANNEL'], 'dsp_channel', 1, 'channel', 'difference', 'delta', '* Change by Channel: ')
+	pub = get_topdrop(acctid_array, query['DSP-PUB'], 'dsp_pub', 2, 'publisher','rev_difference', 'rev_delta', '* Top drop pubs: ', add_link=True)
+	landingpages = get_topdrop(acctid_array, query['LANDINGPAGE'], 'dsp_landingpage', 1, 'landingpagedomain', 'difference', 'delta', '* Top drop campaigns: ', add_link=False)
+	datacenters = get_topdrop(acctid_array, query['DC'], 'dsp_dc', 1, 'dc', 'difference', 'delta', '* Change by DataCenter: ', add_link=False)
+	channels = get_topdrop(acctid_array, query['CHANNEL'], 'dsp_channel', 1, 'channel', 'difference', 'delta', '* Change by Channel: ', add_link=False)
 
-	html = EmailAlert('dsp', 'input.mjml', accts, pub, landingpages, datacenters, channels, headers, value)	
+	html = EmailAlert(data_directory+'dsp', data_directory+'input.mjml', accts, pub, landingpages, datacenters, channels, headers, value)	
 	html.render_template()
-	html.send_email('Testing', me, you)
+	html.send_email('DSP Daily Droppers', me, you)
 
 
 def format_data(df):
@@ -169,29 +178,40 @@ def df_json(df):
 	data = json.loads(json_str)
 	return data 
 
-
-def get_topdrop(acctid, sql, fname, param_num, dimension, difference, delta, strheader):
+def get_topdrop(acctid, sql, fname, param_num, dimension, difference, delta, strheader, add_link=False):
 	acctids = ', '.join([str(i) for i in acctid])
 	df = load_data(sql, fname, acctids, param_num)
 	res = []
 	for acct in acctid:
-		top = df[df['buyerid'] == acct]
-		top = top.sort_values(by = [difference], ascending = [True])
-		top['difference_str'] = top[difference].apply(lambda x: int(round(x))).apply(str)
-		top['num_sign'] = top['difference_str'].apply(lambda x: '-' if x.startswith( '-' ) else '')
-		top["difference_abs"] = top[difference].abs()
-		top['difference_abs_formatted'] = top['difference_abs'].apply(lambda x: '&#36;' + '{:,}'.format(int(round(x))))
-		top[difference] = top['num_sign'] + top['difference_abs_formatted']
-		selectedCols = top[[dimension, difference, delta]]
-		selectedCols[delta] = np.vectorize(percent)(selectedCols[delta])
-		if len(top)>= 3:
-			top3 = selectedCols[:3]
-		else:
-			top3 = selectedCols
+		acct_df = df[df['buyerid'] == acct]
+		acct_top = get_top(acct_df, message['top_3'], difference, asc=True)
+		adj_dollar_sign_for_negative_number(acct_top, difference)
+		acct_top[delta] = np.vectorize(percent)(acct_top[delta])
 		string = strheader
-		for i in range(len(top3)):
-			val = ', '.join([str(i) for i in top3.iloc[i]])
-			string = string + val + "; "
+		if add_link is False:
+			selectedCols = acct_top[[dimension, difference, delta]]	
+		else:
+			selectedCols_ext = acct_top[[dimension, difference, delta, 'dsp']]
+			selectedCols_ext[dimension] = "<a href='" + message['Tableau_dsp_pub'] + "dsp=" + selectedCols_ext['dsp'] + "&publisher=" + selectedCols_ext[dimension] + "' >" + selectedCols_ext[dimension] + '</a>'	
+			selectedCols = selectedCols_ext[[dimension, difference, delta]]
+		for i in range(len(selectedCols)):
+			val = ', '.join([str(i) for i in selectedCols.iloc[i]])
+			string = string + val + ";  "
 		res.append(string)
 	return res 
 
+def get_top(df, top_n, sortby, asc=True):
+	sorted_df = df.sort_values(by = [sortby], ascending = [asc])
+	if len(sorted_df)>= top_n:
+		return sorted_df[:top_n]
+	else:
+		return sorted_df
+
+def adj_dollar_sign_for_negative_number(df, targetColumn):
+		df['targetColumn_str'] = df[targetColumn].apply(lambda x: int(round(x))).apply(str)
+		df['num_sign'] = df['targetColumn_str'].apply(lambda x: '-' if x.startswith( '-' ) else '')
+		df["targetColumn_abs"] = df[targetColumn].abs()
+		df['targetColumn_abs_formatted'] = df['targetColumn_abs'].apply(lambda x: '&#36;' + '{:,}'.format(int(round(x))))
+		df[targetColumn] = df['num_sign'] + df['targetColumn_abs_formatted']
+
+run_app(query['DSP'], "dsp_kpi")
