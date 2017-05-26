@@ -38,7 +38,7 @@ message = {
 
 me = 'ssu@pulsepoint.com'
 
-you ='VXavier@pulsepoint.com, analysts@pulsepoint.com' #'VXavier@pulsepoint.com'/ analysts
+you =['analysts@pulsepoint.com', 'VXavier@pulsepoint.com'] #'VXavier@pulsepoint.com'/ analysts mwojcik@pulsepoint.com
 
 neg_alert_threshold = -10
 possible_cause_threshold = -10
