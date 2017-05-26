@@ -36,7 +36,7 @@ class EmailAlert(object):
 		msg = MIMEMultipart('alternative')
 		msg['Subject'] = subject
 		msg['From'] = me
-		msg['To'] = you
+		msg['To'] = ", ".join(you)
 
 		# Create the body of the message (a plain-text and an HTML version).
 		#text = "Hi!\nHow are you?\nThis is testing"
@@ -58,5 +58,5 @@ class EmailAlert(object):
 		s = smtplib.SMTP('mail.pulse.prod')
 		# sendmail function takes 3 arguments: sender's address, recipient's address
 		# and message to send - here it is sent as one string.
-		s.sendmail(me, [you], msg.as_string())
+		s.sendmail(me, you, msg.as_string())
 		s.quit()
