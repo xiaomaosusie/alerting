@@ -113,9 +113,8 @@ def transform_data(df):
 	headers = []
 	value = []
 
-	acctid = df['buyerid'].T.drop_duplicates().T
-	acctid_array = np.array(acctid['buyerid'])
-	acctids = ', '.join([str(i) for i in acctid_array])
+	acctid = df['buyerid'].iloc[:,0] 
+	acctids = ', '.join([str(i) for i in acctid])
 
 	yesterday_cols = ['revenue' , 'offer' , 'offerrate' , 'offermatchrate' , 'bidrate' , 'blockrate' , 'winrate' , 'revcpm'
 	                     , 'costcpm' , 'margin' , 'timeoutrate']
@@ -138,17 +137,15 @@ def transform_data(df):
 		val = data['data']
 		headers.append(header)
 		value.append(val)
-	return acctid_array, accts, headers, value
+	return acctid, accts, headers, value
 
 
 def email(df):
 	acctid_array, accts, headers, value = transform_data(df)
-
 	pub = get_topdrop(acctid_array, query['DSP-PUB'], 'dsp_pub', 2, 'publisher','rev_difference', 'rev_delta', '* Top drop pubs: ', add_link=True)
 	landingpages = get_topdrop(acctid_array, query['LANDINGPAGE'], 'dsp_landingpage', 1, 'landingpagedomain', 'difference', 'delta', '* Top drop campaigns: ', add_link=False)
 	datacenters = get_topdrop(acctid_array, query['DC'], 'dsp_dc', 1, 'dc', 'difference', 'delta', '* Change by DataCenter: ', add_link=False)
 	channels = get_topdrop(acctid_array, query['CHANNEL'], 'dsp_channel', 1, 'channel', 'difference', 'delta', '* Change by Channel: ', add_link=False)
-
 	html = EmailAlert(data_directory+'dsp', data_directory+'input.mjml', accts, pub, landingpages, datacenters, channels, headers, value)	
 	html.render_template()
 	html.send_email('DSP Daily Droppers', me, you)
@@ -184,19 +181,22 @@ def get_topdrop(acctid, sql, fname, param_num, dimension, difference, delta, str
 	res = []
 	for acct in acctid:
 		acct_df = df[df['buyerid'] == acct]
-		acct_top = get_top(acct_df, message['top_3'], difference, asc=True)
-		adj_dollar_sign_for_negative_number(acct_top, difference)
-		acct_top[delta] = np.vectorize(percent)(acct_top[delta])
-		string = strheader
-		if add_link is False:
-			selectedCols = acct_top[[dimension, difference, delta]]	
+		if len(acct_df) == 0:
+			string = '...;'
 		else:
-			selectedCols_ext = acct_top[[dimension, difference, delta, 'dsp']]
-			selectedCols_ext[dimension] = "<a href='" + message['Tableau_dsp_pub'] + "dsp=" + selectedCols_ext['dsp'] + "&publisher=" + selectedCols_ext[dimension] + "' >" + selectedCols_ext[dimension] + '</a>'	
-			selectedCols = selectedCols_ext[[dimension, difference, delta]]
-		for i in range(len(selectedCols)):
-			val = ', '.join([str(i) for i in selectedCols.iloc[i]])
-			string = string + val + ";  "
+			acct_top = get_top(acct_df, message['top_3'], difference, asc=True)
+			adj_dollar_sign_for_negative_number(acct_top, difference)
+			acct_top[delta] = np.vectorize(percent)(acct_top[delta])
+			string = strheader
+			if add_link is False:
+				selectedCols = acct_top[[dimension, difference, delta]]	
+			else:
+				selectedCols_ext = acct_top[[dimension, difference, delta, 'dsp']]
+				selectedCols_ext[dimension] = "<a href='" + message['Tableau_dsp_pub'] + "dsp=" + selectedCols_ext['dsp'] + "&publisher=" + selectedCols_ext[dimension] + "' >" + selectedCols_ext[dimension] + '</a>'	
+				selectedCols = selectedCols_ext[[dimension, difference, delta]]
+			for i in range(len(selectedCols)):
+				val = ', '.join([str(i) for i in selectedCols.iloc[i]])
+				string = string + val + ";  "
 		res.append(string)
 	return res 
 
