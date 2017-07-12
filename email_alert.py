@@ -6,23 +6,22 @@ from email.mime.text import MIMEText
 
 class EmailAlert(object):
 	"""docstring for EmailAlert"""
-	def __init__(self, filename, mjmltemplate, acct, message1, message2, message3, message4, theader, tvalue):
+	def __init__(self, filename, mjmltemplate, acct, content _json):
 		self.filename = filename
 		self.mjmltemplate = mjmltemplate
-		self.acct = acct
-		self.message1 = message1
-		self.message2 = message2
-		self.message3 = message3
-		self.message4 = message4
-		self.theader = theader
-		self.tvalue = tvalue
+		self.acct = content_json['accountname']
+		self.message1 = content_json['message1']
+		self.message2 = content_json['message2']
+		self.message3 = content_json['message3']
+		self.theader = content_json['theader']
+		self.tvalue = content_json['tvalue']
 
 	def render_template(self):
 		#Render the mjml doc
 		with open(self.mjmltemplate, 'r') as mjmltemp:
 		  # load the template as a string and create a jinja2 template
 			template = Template(mjmltemp.read())
-			rendered = template.render(accts=self.acct, msg1 = self.message1, msg2 = self.message2, msg3 = self.message3, msg4 = self.message4, hdrs=self.theader, rows=self.tvalue)
+			rendered = template.render(accts=self.acct, msg1 = self.message1, msg2 = self.message2, msg3 = self.message3, hdrs=self.theader, rows=self.tvalue)
 			
 			with open(self.filename+".mjml", "w") as text_file:
 				text_file.write(rendered)

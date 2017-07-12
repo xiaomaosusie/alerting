@@ -1,28 +1,47 @@
-class Insights(object):
+import pandas as pd 
+from process_data import process_data
+
+class insights(object):
 	"""docstring for insights"""
-	def __init__(self, acctid, df):
-		super(Insights, self).__init__()
-		self.acctid = acctid
-		self.df = df
+	def __init__(self, df):
+		super(insights, self).__init__()
+		self.df = df 
 
-	def process_topdrop(self, dimension, difference, delta, strheader):
-		res = []
-		for acct in self.acctid:
-			top = self.df[self.df['buyerid'] == acct]
-			top = top.sort_values(by = [difference], ascending = [True])
-			selectedCols = top[[dimension,difference, delta]]
-			selectedCols[difference] = np.vectorize(currency)(selectedCols[difference])
-			selectedCols[delta] = np.vectorize(percent)(selectedCols[delta])
-			if len(top)>= 3:
-				top3 = selectedCols[:3]
+	def top_changers(self, accountids_str, dimension, default_message, link=None):
+		accountids = accountids_str.split(",")
+		result = []
+		for acct in accountids:
+			acct_df = self.df[self.df['accountid'] == int(acct)]
+			if len(acct_df) == 0:
+				string = default_message
 			else:
-				top3 = selectedCols
-			string = strheader
-			for i in range(len(top3)):
-				val = ', '.join([str(i) for i in top3.iloc[i]])
-				string = string + val + "; "
-			res.append(string)
-		return res 
+				string = dimension + "s account for " + str(self.df['cutoff'][0]) + "% of " + str(self.df['flag'][0]) + ": "
+				if link is None:
+					selectedCols = acct_df[[dimension, 'difference_cur', 'delta_pct']]	
+				else:
+					selectedCols_ext = acct_df[[dimension, 'difference_cur', 'delta_pct', 'dsp']]
+					selectedCols_ext[dimension] = "<a href='" + link + "dsp=" + selectedCols_ext['dsp'] + "&publisher=" + selectedCols_ext[dimension] + "' >" + selectedCols_ext[dimension] + '</a>'	
+					selectedCols = selectedCols_ext[[dimension, 'difference_cur', 'delta_pct']]
+				for i in range(len(selectedCols)):
+					val = ', '.join([str(i) for i in selectedCols.iloc[i]])
+					string = string + val + ";  "
+			result.append(string)
+		return result
 
-
-		
+	def facts(self, accountids_str, dimension, default_message):
+		accountids = accountids_str.split(",")
+		result = []
+		formatted = process_data(self.df)
+		df = formatted.format_data(self.df)
+		for acct in accountids:
+			acct_df = df[df['accountid'] == int(acct)]
+			if len(acct_df) == 0:
+				string = default_message
+			else:
+				string = "Changes by " + dimension + ": "
+				selectedCols = acct_df[[dimension, 'difference_cur', 'delta_pct']]	
+				for i in range(len(selectedCols)):
+					val = ', '.join([str(i) for i in selectedCols.iloc[i]])
+					string = string + val + ";  "
+			result.append(string)
+		return result
