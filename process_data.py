@@ -119,9 +119,9 @@ class process_data(object):
 		res = df[df['cum_pct'] <= pct * 100]
 		res['num_of_others'] = len(res) - 5
 		if len(res) == 0:
-			res = df[:1]
+			res = res[:1]
 		elif len(res) >= 5:
-			res = df[:5]
+			res = res[:5]
 		res['cutoff'] = int(pct * 100)
 		return res
 

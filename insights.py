@@ -25,8 +25,8 @@ class insights(object):
 				for i in range(len(selectedCols)):
 					val = ', '.join([str(i) for i in selectedCols.iloc[i]])
 					string = string + val + ";  "
-				if acct_df['num_of_others'][0] > 0:
-					string = string + "and other" + str(acct_df['num_of_others'][0])  + dimenion + "s. "
+			if acct_df['num_of_others'].mean() > 0:
+				string = string + "and " + str(int(acct_df['num_of_others'].mean()))  + " more " + dimension + "(s). "
 			result.append(string)
 		return result
 
