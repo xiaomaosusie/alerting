@@ -15,7 +15,7 @@ class insights(object):
 			if len(acct_df) == 0:
 				string = default_message
 			else:
-				string = dimension + "s account for " + str(self.df['cutoff'][0]) + "% of " + str(self.df['flag'][0]) + ": "
+				string = "* " + dimension + "s account for " + str(self.df['cutoff'][0]) + "% of " + str(self.df['flag'][0]) + ": "
 				if link is None:
 					selectedCols = acct_df[[dimension, 'difference_cur', 'delta_pct']]	
 				else:
@@ -25,6 +25,8 @@ class insights(object):
 				for i in range(len(selectedCols)):
 					val = ', '.join([str(i) for i in selectedCols.iloc[i]])
 					string = string + val + ";  "
+				if acct_df['num_of_others'][0] > 0:
+					string = string + "and other" + str(acct_df['num_of_others'][0])  + dimenion + "s. "
 			result.append(string)
 		return result
 
@@ -38,7 +40,7 @@ class insights(object):
 			if len(acct_df) == 0:
 				string = default_message
 			else:
-				string = "Changes by " + dimension + ": "
+				string = "* Changes by " + dimension + ": "
 				selectedCols = acct_df[[dimension, 'difference_cur', 'delta_pct']]	
 				for i in range(len(selectedCols)):
 					val = ', '.join([str(i) for i in selectedCols.iloc[i]])

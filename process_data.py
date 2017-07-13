@@ -1,5 +1,4 @@
 import pandas as pd 
-import numpy as np
 import functools
 import json
 from pp_data import pp_data
@@ -85,7 +84,7 @@ class process_data(object):
 	def multiple_tables(self, df):
 		table_headers = []
 		table_value = []
-		accountnames = np.array(df.index)
+		accountnames = pd.Series(df.index)
 		accountids = df['accountid'].iloc[:, 0]
 		acctids_str = ", ".join([str(id) for id in accountids])
 		deep_dive_acct = df[df['is_daily'] == 1]
@@ -118,8 +117,11 @@ class process_data(object):
 		df = self.changes(df, positive)
 		df["cum_pct"] = df['difference_cur'].cumsum()/df['difference_cur'].sum() * 100
 		res = df[df['cum_pct'] <= pct * 100]
+		res['num_of_others'] = len(res) - 5
 		if len(res) == 0:
 			res = df[:1]
+		elif len(res) >= 5:
+			res = df[:5]
 		res['cutoff'] = int(pct * 100)
 		return res
 

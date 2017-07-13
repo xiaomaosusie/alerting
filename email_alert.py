@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 
 class EmailAlert(object):
 	"""docstring for EmailAlert"""
-	def __init__(self, filename, mjmltemplate, acct, content _json):
+	def __init__(self, filename, mjmltemplate, content_json):
 		self.filename = filename
 		self.mjmltemplate = mjmltemplate
 		self.acct = content_json['accountname']
