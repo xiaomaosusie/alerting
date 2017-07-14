@@ -1,0 +1,417 @@
+<mjml>
+    <mj-head>
+        <mj-style inline="inline">
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+        }
+
+        .mj-column-per-100 td,
+        .mj-column-per-100 th
+        {
+            text-align:left;
+            width: 20%;
+        }
+
+        .mj-column-per-100 td + td,
+        .mj-column-per-100 th + th
+        {
+            text-align:center;
+            width: 20%;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #31004d;
+            color: white;
+        }
+
+        .pos {
+            color: green;
+        }
+
+        .neg {
+            color: red;
+        }
+        </mj-style>
+    </mj-head>
+
+    <mj-body>
+      <mj-container>
+      
+       <!-- HEADER -->
+       <mj-section>
+        <mj-column>
+         <mj-text><h4>RTB-Drawbridge</h4>* publishers account for 50% of increase: <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-Drawbridge&publisher=RTS-MobFox' >RTS-MobFox</a>, &#36;336, 294.5%;  <br>* campaigns account for 50% of increase: buffalowildwings.com, &#36;198, 428.8%;  silk.com, &#36;180, 45.1%;  jetblue.com, &#36;140, 99.9%;  <br>* Changes by channel: display, &#36;374, 13.1%;  video, &#36;243, 36.8%;  </mj-text>
+        </mj-column>
+       </mj-section>
+
+       <!-- Body -->
+       <mj-section>
+        <mj-column>
+         <mj-table >
+             <tr>
+               
+                  <th>metric</th>
+               
+                  <th>2017-07-13</th>
+               
+                  <th>change agst prior day</th>
+               
+                  <th>change agst 4-day avg</th>
+               
+                  <th>change agst 7-day avg</th>
+               
+             </tr>
+
+             
+              <tr>
+               
+                <td>revenue</td>
+               
+                <td>&#36;4,135</td>
+               
+                <td>17.0%</td>
+               
+                <td><span class = 'pos'>30%</span></td>
+               
+                <td><span class = 'pos'>26%</span></td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer</td>
+               
+                <td>3,505M</td>
+               
+                <td>5.1%</td>
+               
+                <td>-2.2%</td>
+               
+                <td>-0.3%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>14.7%</td>
+               
+                <td>7.3%</td>
+               
+                <td>2.1%</td>
+               
+                <td>2.8%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offermatch rate</td>
+               
+                <td>45.0%</td>
+               
+                <td>-15.1%</td>
+               
+                <td>-10.0%</td>
+               
+                <td>-6.2%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>bid rate</td>
+               
+                <td>0.6%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>block rate</td>
+               
+                <td>3.6%</td>
+               
+                <td><span class = 'pos'>44%</span></td>
+               
+                <td>5.9%</td>
+               
+                <td><span class = 'pos'>20%</span></td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>win rate</td>
+               
+                <td>10.9%</td>
+               
+                <td>0.9%</td>
+               
+                <td>14.7%</td>
+               
+                <td>12.4%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>revcpm</td>
+               
+                <td>&#36;1.89</td>
+               
+                <td>17.4%</td>
+               
+                <td>13.2%</td>
+               
+                <td>17.4%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>costcpm</td>
+               
+                <td>&#36;1.25</td>
+               
+                <td>12.6%</td>
+               
+                <td>5.9%</td>
+               
+                <td>10.6%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>margin</td>
+               
+                <td>33.9%</td>
+               
+                <td>8.7%</td>
+               
+                <td>15.3%</td>
+               
+                <td>12.6%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>timeout rate</td>
+               
+                <td>2.5%</td>
+               
+                <td><span class = 'pos'>31%</span></td>
+               
+                <td><span class = 'pos'>25%</span></td>
+               
+                <td><span class = 'pos'>31%</span></td>
+               
+              </tr>
+               
+        </mj-table>
+        </mj-column>
+       </mj-section>
+      
+       <!-- HEADER -->
+       <mj-section>
+        <mj-column>
+         <mj-text><h4>RTB-Nuviad</h4>* publishers account for 50% of increase: <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-Nuviad&publisher=RTS-Sonobi' >RTS-Sonobi</a>, &#36;162, 66.3%;  <a href='http://tableau:8000/#/views/DSPTrendsDashboard/DSPPublisherTrends7D?dsp=RTB-Nuviad&publisher=Singapore Media' >Singapore Media</a>, &#36;112, 38.3%;  <br>* campaigns account for 50% of increase: trulia.com, &#36;557, 36.1%;  <br>* Changes by channel: display, &#36;361, 16.2%;  video, &#36;0, -28.7%;  </mj-text>
+        </mj-column>
+       </mj-section>
+
+       <!-- Body -->
+       <mj-section>
+        <mj-column>
+         <mj-table >
+             <tr>
+               
+                  <th>metric</th>
+               
+                  <th>2017-07-13</th>
+               
+                  <th>change agst prior day</th>
+               
+                  <th>change agst 4-day avg</th>
+               
+                  <th>change agst 7-day avg</th>
+               
+             </tr>
+
+             
+              <tr>
+               
+                <td>revenue</td>
+               
+                <td>&#36;2,591</td>
+               
+                <td>16.0%</td>
+               
+                <td>8.0%</td>
+               
+                <td>-9.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer</td>
+               
+                <td>1,814M</td>
+               
+                <td>0.7%</td>
+               
+                <td>-1.4%</td>
+               
+                <td>-2.2%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offer rate</td>
+               
+                <td>7.6%</td>
+               
+                <td>2.7%</td>
+               
+                <td>2.7%</td>
+               
+                <td>0.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>offermatch rate</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+                <td>0.0%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>bid rate</td>
+               
+                <td>4.0%</td>
+               
+                <td>5.3%</td>
+               
+                <td>2.6%</td>
+               
+                <td>-4.8%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>block rate</td>
+               
+                <td>13.3%</td>
+               
+                <td>-7.0%</td>
+               
+                <td><span class = 'neg'>-30%</span></td>
+               
+                <td><span class = 'neg'>-33%</span></td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>win rate</td>
+               
+                <td>3.7%</td>
+               
+                <td>0.0%</td>
+               
+                <td>5.7%</td>
+               
+                <td>-2.6%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>revcpm</td>
+               
+                <td>&#36;0.95</td>
+               
+                <td>6.7%</td>
+               
+                <td>0.0%</td>
+               
+                <td>-3.1%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>costcpm</td>
+               
+                <td>&#36;0.59</td>
+               
+                <td>0.0%</td>
+               
+                <td>-9.2%</td>
+               
+                <td>-13.2%</td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>margin</td>
+               
+                <td>37.9%</td>
+               
+                <td>13.5%</td>
+               
+                <td>19.2%</td>
+               
+                <td><span class = 'pos'>27%</span></td>
+               
+              </tr>
+            
+              <tr>
+               
+                <td>timeout rate</td>
+               
+                <td>7.1%</td>
+               
+                <td>-12.3%</td>
+               
+                <td>-4.1%</td>
+               
+                <td>6.0%</td>
+               
+              </tr>
+               
+        </mj-table>
+        </mj-column>
+       </mj-section>
+      
+      </mj-container>
+    </mj-body>
+</mjml>

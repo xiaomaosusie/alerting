@@ -22,14 +22,16 @@ class process_data(object):
 			CritList = [Crit1, Crit2, Crit3, Crit4]
 		else:
 			Crit1 = df.revenue_change_agst_pd_pct >= pctCutoff * 100
-			Crit2 = df.rev_diff_agst_pd_cur >= absoluteCutoff * 100
+			Crit2 = df.rev_diff_agst_pd_cur >= absoluteCutoff
 			CritList = [Crit1, Crit2]
 		AllCrit = functools.reduce(lambda x, y: x | y, CritList)
 		result = df[AllCrit]
-		result['is_daily'] = result.apply(lambda row: 1 if row['revenue_change_agst_pd_pct'] <= -pctCutoff else 0, axis = 1) 
-		sorted_res = result.sort_values(by = ['is_daily', 'revenue_cur'], ascending = [False, False])
+		if jumper is False:
+			result['is_deep_dive'] = result.apply(lambda row: 1 if (row['revenue_change_agst_pd_pct'] <= -pctCutoff * 100) | (row['rev_diff_agst_pd_cur'] <= -absoluteCutoff) else 0, axis = 1) 
+		else:
+			result['is_deep_dive'] = result.apply(lambda row: 1 if (row['revenue_change_agst_pd_pct'] >= pctCutoff * 100) | (row['rev_diff_agst_pd_cur'] >= absoluteCutoff) else 0, axis = 1) 			
+		sorted_res = result.sort_values(by = ['is_deep_dive', 'revenue_cur'], ascending = [False, False])
 		return sorted_res
-
 
 	def format_data(self, df):
 		int_col = df[[col for col in df.columns if (('revenue' in col) | ('difference' in col))]]
@@ -85,7 +87,7 @@ class process_data(object):
 		accountnames = pd.Series(df.index)
 		accountids = df['accountid'].iloc[:, 0]
 		acctids_str = ", ".join([str(id) for id in accountids])
-		deep_dive_acct = df[df['is_daily'] == 1]
+		deep_dive_acct = df[df['is_deep_dive'] == 1]
 		deep_dive_accountids = deep_dive_acct['accountid'].iloc[:, 0]
 		deep_dive_acctids_str = ", ".join([str(id) for id in deep_dive_accountids])
 		df = self.format_data(df)
@@ -117,7 +119,8 @@ class process_data(object):
 		res = df[df['cum_pct'] <= pct * 100]
 		res['num_of_others'] = len(res) - 5
 		if len(res) == 0:
-			res = res[:1]
+			res = df[:1]
+			res['num_of_others'] = 0
 		elif len(res) >= 5:
 			res = res[:5]
 		res['cutoff'] = int(pct * 100)
