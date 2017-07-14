@@ -27,12 +27,12 @@ dsp_queries = {
 	"test": "master.sql"
 }
 
-account_type = {
+account_types = {
 	"dsp" : 'dsp',
 	"pub" : 'pub'
 }
 
-change_type = {
+change_types = {
 	'jumpers': 'jumpers',
 	'droppers': 'droppers'
 }
@@ -47,12 +47,10 @@ default_message = {
 	'channel': ""
 }
 
-alert_param = {
-	'alertee_account_rev_threshold': 1000,
-	'jumper_pct_cutoff': 15,
-	'jumper_absolute_cutoff': 5000,
-	'dropper_pct_cutoff': 15,
-	'dropper_absolute_cutoff': 5000,
+alert_params = {
+	'account_rev_threshold': 1000,
+	'pct_cutoff': 0.15,
+	'absolute_cutoff': 5000,
 	'dsp_pub_top_changers_by_pct': 0.5,
 	'dsp_campaign_top_changers_by_pct': 0.5
 }
@@ -66,26 +64,54 @@ emails = {
 
 
 
-def run_app(acct_type, change_type, queries, ):
-	df = load_data(sql, fname)
-	processed_data = run_data(df)
-	formatted_data = format_data(processed_data)
-	email(formatted_data)
+def run_app(acct_type, change_type, sql_obj, link_obj, default_msg_obj, alert_param_obj, email_obj, jumper=False):
+	data = pp_data(sql_obj[acct_type])
+	#removed dated data
+	data.remove_data()
+	#generate new data
+	filename = acct_type + "_" + change_type
+	alertee_df = data.get_data(filename)
+	processed = process_data(alertee_df)
+	alertee = processed.get_alertee(acct_type, alert_param_obj['pct_cutoff'], alert_param_obj['absolute_cutoff'], alert_param_obj['account_rev_threshold'], jumper)
+	ids, deep_dive_ids, accountnames, table_headers, table_value = processed.multiple_tables(alertee)
+
+	#get pub data
+	pub = pp_data(sql_obj['pub'])
+	pub_df = pub.get_data('pub_' + change_type, deep_dive_ids)
+	pub_processed = process_data(pub_df)
+	pub_tops = pub_processed.top_by_pct_multi_accts(alert_param_obj['dsp_pub_top_changers_by_pct'], jumper)
+	insight = insights(pub_tops)
+	pub_res = insight.top_changers(ids, 'publisher', default_msg_obj['pub'], link_obj['Tableau_dsp_pub'])
+
+	#get campaign data
+	lan = pp_data(sql_obj['campaign'])
+	lan_df = lan.get_data("campaign_" + change_type, deep_dive_ids)
+	lan_processed = process_data(lan_df)
+	lan_tops = lan_processed.top_by_pct_multi_accts(alert_param_obj['dsp_campaign_top_changers_by_pct'], jumper)
+	insight2 = insights(lan_tops)
+	cam_res = insight2.top_changers(ids, 'campaign', default_msg_obj['campaign'])
+
+	#get channel data
+	cn = pp_data(sql_obj['channel'])
+	cn_df = cn.get_data("channel_" + change_type, deep_dive_ids)
+	insight3 = insights(cn_df)
+	cn_res = insight3.facts(ids, 'channel', default_msg_obj['channel'])
+
+	#construct email content
+	email_content = {
+	"accountname": accountnames,
+	"message1": pub_res,
+	"message2": cam_res,
+	"message3": cn_res,
+	"theader": table_headers,
+	"tvalue": table_value
+	}
+
+	#build email html 
+	email = EmailAlert(filename, data_directory + 'input.mjml', email_content)
+	email.render_template()
+	#email_subject = acct_type + " daily " + change_type
+	#email.send_email(email_subject, email_obj['from'], email_obj['to'])
 
 
-
-
-def email(df):
-	acctid_array, accts, headers, value = transform_data(df)
-	pub = get_topdrop(acctid_array, query['DSP-PUB'], 'dsp_pub', 2, 'publisher','rev_difference', 'rev_delta', '* Top drop pubs: ', add_link=True)
-	landingpages = get_topdrop(acctid_array, query['LANDINGPAGE'], 'dsp_landingpage', 1, 'landingpagedomain', 'difference', 'delta', '* Top drop campaigns: ', add_link=False)
-	datacenters = get_topdrop(acctid_array, query['DC'], 'dsp_dc', 1, 'dc', 'difference', 'delta', '* Change by DataCenter: ', add_link=False)
-	channels = get_topdrop(acctid_array, query['CHANNEL'], 'dsp_channel', 1, 'channel', 'difference', 'delta', '* Change by Channel: ', add_link=False)
-	html = EmailAlert(data_directory+'dsp', data_directory+'input.mjml', accts, pub, landingpages, datacenters, channels, headers, value)	
-	html.render_template()
-	html.send_email('DSP Daily Droppers', me, you)
-
-
-
-
-# #run_app(query['DSP'], "dsp_kpi")
+run_app(account_types['dsp'], change_types['droppers'], dsp_queries, links, default_message, alert_params, emails, jumper=False)

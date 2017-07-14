@@ -9,33 +9,27 @@ class process_data(object):
 		super(process_data, self).__init__()
 		self.df = df 
 
-	def get_dropper(self, segmentKey, pctCutoff, absoluteCutoff, acctCutoff):
+	def get_alertee(self, segmentKey, pctCutoff, absoluteCutoff, acctCutoff, jumper=False):
 		df = self.df.set_index(segmentKey)
 		#apply account threshold, eliminating alerting on small accounts
 		df = df[df['7davgrevenue'] >= acctCutoff]
 		#apply alerting criteria 
-		Crit1 = df.revenue_change_agst_pd_pct <= -pctCutoff * 100
-		Crit2 = df.revenue_change_agst_4davg_pct <= -pctCutoff * 100
-		Crit3 = df.revenue_change_agst_7davg_pct <= -pctCutoff * 100
-		Crit4 = df.rev_diff_agst_pd_cur <= -absoluteCutoff
-		CritList = [Crit1, Crit2, Crit3, Crit4]
+		if jumper is False:
+			Crit1 = df.revenue_change_agst_pd_pct <= -pctCutoff * 100
+			Crit2 = df.revenue_change_agst_4davg_pct <= -pctCutoff * 100
+			Crit3 = df.revenue_change_agst_7davg_pct <= -pctCutoff * 100
+			Crit4 = df.rev_diff_agst_pd_cur <= -absoluteCutoff
+			CritList = [Crit1, Crit2, Crit3, Crit4]
+		else:
+			Crit1 = df.revenue_change_agst_pd_pct >= pctCutoff * 100
+			Crit2 = df.rev_diff_agst_pd_cur >= absoluteCutoff * 100
+			CritList = [Crit1, Crit2]
 		AllCrit = functools.reduce(lambda x, y: x | y, CritList)
 		result = df[AllCrit]
 		result['is_daily'] = result.apply(lambda row: 1 if row['revenue_change_agst_pd_pct'] <= -pctCutoff else 0, axis = 1) 
 		sorted_res = result.sort_values(by = ['is_daily', 'revenue_cur'], ascending = [False, False])
 		return sorted_res
 
-	def get_jumper(self, segmentKey, pctCutoff, absoluteCutoff, acctCutoff):
-		df = self.df.set_index(segmentKey)
-		#apply account threshold, eliminating alerting on small accounts
-		df = df[df['7davgrevenue'] >= acctCutoff]
-		#apply alerting criteria 
-		Crit1 = df.revenue_change_agst_pd_pct >= pctCutoff * 100
-		Crit2 = df.rev_diff_agst_pd_cur >= absoluteCutoff * 100
-		CritList = [Crit1, Crit2]
-		AllCrit = functools.reduce(lambda x, y: x | y, CritList)
-		result = df[AllCrit]
-		return result
 
 	def format_data(self, df):
 		int_col = df[[col for col in df.columns if (('revenue' in col) | ('difference' in col))]]
@@ -47,9 +41,13 @@ class process_data(object):
 		currency_col = df[[col for col in df.columns if ('cur' in col)]]
 		for col in currency_col:
 			df[col] = df[col].apply(lambda x: '&#36;' + '{:,}'.format(x) if x >= 0 else '-&#36;' + '{:,}'.format(abs(x)))
-		pct_col = df[[col for col in df.columns if ('pct' in col)]]
+		pct_color_col = df[[col for col in df.columns if ('pct' in col) & ('change' in col)]]
+		for col in pct_color_col:
+			df[col] = df[col].apply(lambda x: "<span class = 'pos'>" + str(int(x)) + "%</span>" if x >= 20 else "<span class = 'neg'>" + str(int(x)) + "%</span>" if x <= -20 else '{:.1f}%'.format(x))
+		pct_col = df[[col for col in df.columns if ('pct' in col) & ('change' not in col)]]
 		for col in pct_col:
 			df[col] = df[col].apply(lambda x: '{:.1f}%'.format(x)) 
+		
 		return df 
 
 	def single_dsp_table(self, df):

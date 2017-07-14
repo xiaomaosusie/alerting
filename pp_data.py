@@ -24,7 +24,6 @@ class pp_data(object):
 		return query 
 
 	def get_data(self, fname, param=None):
-		self.remove_data(prior_day)
 		filename = os.path.join(directory, "{}_{}.pkl".format(fname, current_day))
 		if os.path.exists(filename) is False:
 			df = pd.read_sql(self.custom_sql(param), create_engine(database))
@@ -33,8 +32,8 @@ class pp_data(object):
 			df = pd.read_pickle(filename)
 		return df
 
-	def remove_data(self, day):
-		files = glob.glob(directory + "*" + day + "*")
+	def remove_data(self):
+		files = glob.glob(directory + "*" + prior_day + "*")
 		if len(files) > 0:
 			for f in files:
 				os.remove(f)

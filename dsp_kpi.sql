@@ -1,5 +1,5 @@
 SELECT
-    dspbdev.accountname AS Advertiser,
+    dspbdev.accountname AS dsp,
     dspbdev.am     AS AM,
     dspbdev.email,
     PD.*,
