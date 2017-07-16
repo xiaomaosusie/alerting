@@ -1,12 +1,12 @@
 import pandas as pd 
 import functools
 import json
-from pp_data import pp_data
+from pp_data import PPData
 
-class process_data(object):
+class ProcessData(object):
 	"""docstring for process_data"""
 	def __init__(self, df):
-		super(process_data, self).__init__()
+		super(ProcessData, self).__init__()
 		self.df = df 
 
 	def get_alertee(self, segmentKey, pctCutoff, absoluteCutoff, acctCutoff, jumper=False):
@@ -15,25 +15,25 @@ class process_data(object):
 		df = df[df['7davgrevenue'] >= acctCutoff]
 		#apply alerting criteria 
 		if jumper is False:
+			df['is_deep_dive'] = df.apply(lambda row: 1 if (row['revenue_change_agst_pd_pct'] <= -pctCutoff * 100) | (row['rev_diff_agst_pd_cur'] <= -absoluteCutoff) else 0, axis = 1) 
 			Crit1 = df.revenue_change_agst_pd_pct <= -pctCutoff * 100
 			Crit2 = df.revenue_change_agst_4davg_pct <= -pctCutoff * 100
 			Crit3 = df.revenue_change_agst_7davg_pct <= -pctCutoff * 100
 			Crit4 = df.rev_diff_agst_pd_cur <= -absoluteCutoff
 			CritList = [Crit1, Crit2, Crit3, Crit4]
 		else:
+			df['is_deep_dive'] = df.apply(lambda row: 1 if (row['revenue_change_agst_pd_pct'] >= pctCutoff * 100) | (row['rev_diff_agst_pd_cur'] >= absoluteCutoff) else 0, axis = 1) 
 			Crit1 = df.revenue_change_agst_pd_pct >= pctCutoff * 100
-			Crit2 = df.rev_diff_agst_pd_cur >= absoluteCutoff
-			CritList = [Crit1, Crit2]
+			Crit2 = df.revenue_change_agst_4davg_pct >= pctCutoff * 100
+			Crit3 = df.revenue_change_agst_7davg_pct >= pctCutoff * 100
+			Crit4 = df.rev_diff_agst_pd_cur >= absoluteCutoff
+			CritList = [Crit1, Crit2, Crit3, Crit4]
 		AllCrit = functools.reduce(lambda x, y: x | y, CritList)
-		result = df[AllCrit]
-		if jumper is False:
-			result['is_deep_dive'] = result.apply(lambda row: 1 if (row['revenue_change_agst_pd_pct'] <= -pctCutoff * 100) | (row['rev_diff_agst_pd_cur'] <= -absoluteCutoff) else 0, axis = 1) 
-		else:
-			result['is_deep_dive'] = result.apply(lambda row: 1 if (row['revenue_change_agst_pd_pct'] >= pctCutoff * 100) | (row['rev_diff_agst_pd_cur'] >= absoluteCutoff) else 0, axis = 1) 			
+		result = df[AllCrit]		
 		sorted_res = result.sort_values(by = ['is_deep_dive', 'revenue_cur'], ascending = [False, False])
 		return sorted_res
 
-	def format_data(self, df):
+	def format_data(self, df, colorEmbeddingParam=None):
 		int_col = df[[col for col in df.columns if (('revenue' in col) | ('difference' in col))]]
 		for col in int_col:
 			df[col] = df[col].apply(lambda x: int(x))
@@ -43,13 +43,13 @@ class process_data(object):
 		currency_col = df[[col for col in df.columns if ('cur' in col)]]
 		for col in currency_col:
 			df[col] = df[col].apply(lambda x: '&#36;' + '{:,}'.format(x) if x >= 0 else '-&#36;' + '{:,}'.format(abs(x)))
-		pct_color_col = df[[col for col in df.columns if ('pct' in col) & ('change' in col)]]
-		for col in pct_color_col:
-			df[col] = df[col].apply(lambda x: "<span class = 'pos'>" + str(int(x)) + "%</span>" if x >= 20 else "<span class = 'neg'>" + str(int(x)) + "%</span>" if x <= -20 else '{:.1f}%'.format(x))
 		pct_col = df[[col for col in df.columns if ('pct' in col) & ('change' not in col)]]
 		for col in pct_col:
 			df[col] = df[col].apply(lambda x: '{:.1f}%'.format(x)) 
-		
+		if colorEmbeddingParam is not None:
+			pct_color_col = df[[col for col in df.columns if ('pct' in col) & ('change' in col)]]
+			for col in pct_color_col:
+				df[col] = df[col].apply(lambda x: "<span class = 'pos'>" + str(int(x)) + "%</span>" if x >= (colorEmbeddingParam * 100) else "<span class = 'neg'>" + str(int(x)) + "%</span>" if x <= -(colorEmbeddingParam * 100) else '{:.1f}%'.format(x))		
 		return df 
 
 	def single_dsp_table(self, df):
@@ -66,7 +66,7 @@ class process_data(object):
 							'bidrate_change_agst_7davg_pct' , 'blockrate_change_agst_7davg_pct' , 'winrate_change_agst_7davg_pct' , 'revcpm_change_agst_7davg_pct', 
 							'costcpm_change_agst_7davg_pct' , 'margin_change_agst_7davg_pct' , 'timeoutrate_change_agst_7davg_pct']]
 
-		Col0 = pd.DataFrame({'metric': ['revenue', 'offer', 'offer rate', 'offermatch rate', 'bid rate', 'block rate', 
+		Col0 = pd.DataFrame({'metric': ['revenue', 'offer', 'offer rate', 'offer match rate', 'bid rate', 'block rate', 
 							'win rate', 'revcpm', 'costcpm', 'margin', 'timeout rate']})
 		Col1 = prior_day.T.reset_index(drop=True)
 		Col2 = change_agst_ppd.T.reset_index(drop=True)
@@ -81,16 +81,16 @@ class process_data(object):
 		table_val = table_json['data']
 		return table_header, table_val	
 
-	def multiple_tables(self, df):
+	def multiple_tables(self, df, colorEmbeddingParam=None):
 		table_headers = []
 		table_value = []
 		accountnames = pd.Series(df.index)
 		accountids = df['accountid'].iloc[:, 0]
 		acctids_str = ", ".join([str(id) for id in accountids])
-		deep_dive_acct = df[df['is_deep_dive'] == 1]
-		deep_dive_accountids = deep_dive_acct['accountid'].iloc[:, 0]
+		deep_dive_accountids = df[df['is_deep_dive'] == 1]['accountid'].iloc[:, 0]
+		#deep_dive_accountids = deep_dive_acct['accountid'].iloc[:, 0]
 		deep_dive_acctids_str = ", ".join([str(id) for id in deep_dive_accountids])
-		df = self.format_data(df)
+		df = self.format_data(df, colorEmbeddingParam)
 		for name in accountnames:
 			acct_data = df[df.index == name]
 			table_header, table_val = self.single_dsp_table(acct_data)

@@ -8,11 +8,11 @@ directory = "C:/Users/ssu/Documents/github/alerting/"
 prior_day = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y%m%d")
 current_day = datetime.datetime.now().strftime("%Y%m%d")
 
-class pp_data(object):
+class PPData(object):
 	"""docstring for data"""
 
 	def __init__(self, sql_template):
-		super(pp_data, self).__init__()
+		super(PPData, self).__init__()
 		self.sql_template = sql_template
 
 	def custom_sql(self, param=None):

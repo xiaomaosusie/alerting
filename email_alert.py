@@ -11,6 +11,7 @@ class EmailAlert(object):
 
 	def render_template(self, mjmltemplate, content_json): 
 		acct = content_json['accountname']
+		message0 = content_json['message0']
 		message1 = content_json['message1']
 		message2 = content_json['message2']
 		message3 = content_json['message3']
@@ -20,7 +21,7 @@ class EmailAlert(object):
 		with open(mjmltemplate, 'r') as mjmltemp:
 		  # load the template as a string and create a jinja2 template
 			template = Template(mjmltemp.read())
-			rendered = template.render(accts = acct, msg1 = message1, msg2 = message2, msg3 = message3, hdrs = theader, rows = tvalue)
+			rendered = template.render(accts = acct, msg0 = message0, msg1 = message1, msg2 = message2, msg3 = message3, hdrs = theader, rows = tvalue)
 			
 			with open(self.filename+".mjml", "w") as text_file:
 				text_file.write(rendered)
