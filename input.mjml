@@ -30,6 +30,14 @@
             background-color: #31004d;
             color: white;
         }
+
+        .pos {
+            color: green;
+        }
+
+        .neg {
+            color: red;
+        }
         </mj-style>
     </mj-head>
 
@@ -39,7 +47,7 @@
        <!-- HEADER -->
        <mj-section>
         <mj-column>
-         <mj-text><h4>{{accts[i]}}</h4>{{msg1[i]}}<br>{{msg2[i]}}<br>{{msg3[i]}}<br>{{msg4[i]}}</mj-text>
+         <mj-text><h4>{{accts[i]}}</h4>{{msg0[i]}}<br>{{msg1[i]}}<br>{{msg2[i]}}<br>{{msg3[i]}}</mj-text>
         </mj-column>
        </mj-section>
 

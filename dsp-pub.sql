@@ -1,55 +1,27 @@
 select 
-        buyerid,
+        res.accountid,
         dsp.accountname as dsp,
         publisherid,
         pub.accountname as publisher,
-        ppdrevenue,
-        pdrevenue,
-        round(COALESCE(rev_difference,0),2) as rev_difference,
-        COALESCE(rev_delta,0) as rev_delta,
-        COALESCE(offer_difference,0) as offer_difference,
-        COALESCE(offer_delta,0) as offer_delta
+        round(ppdrevenue,0) as ppdrevenue_cur,
+        round(pdrevenue, 0) as pdrevenue_cur,
+        round(COALESCE(difference,0), 0) as difference_cur,
+        case when ppdrevenue > 0 then 100 * difference/ppdrevenue else 0 end as delta_pct
 from
 (select
-        spend.*,
-        case when ppdrevenue > 0 then 100 * rev_difference/ppdrevenue else 0 end as rev_delta,
-        offer_difference,
-        offer_delta,
-        sum(ppdrevenue) over (partition by spend.buyerid order by ppdrevenue desc) / sum(ppdrevenue) over (partition by spend.buyerid) as cum_pct
-from
-(select
-        buyerid,
+        buyerid as accountid,
         publisherid,
         sum(case when day = to_date(date_sub(now(), 2)) then revenue else 0 end) as ppdrevenue,
         sum(case when day = to_date(date_sub(now(), 1)) then revenue else 0 end) as pdrevenue,
         ( sum(case when day = to_date(date_sub(now(), 1)) then revenue else 0 end) - 
-        sum(case when day = to_date(date_sub(now(), 2)) then revenue else 0 end) ) as rev_difference
+        sum(case when day = to_date(date_sub(now(), 2)) then revenue else 0 end) ) as difference
 from rtb.rtbspenddaily
 where day >= to_date(date_sub(now(), 2))
         and day < to_date(from_unixtime(iudf.det_unix_timestamp()))
-      and buyerid in (%s)
-group by 1,2) spend
-left join
-        (select
-        buyerid,
-        publisherid,
-        sum(case when day = to_date(date_sub(now(), 2)) then bidsoffered else 0 end) as ppdoffer,
-        sum(case when day = to_date(date_sub(now(), 1)) then bidsoffered else 0 end) as pdoffer,
-        ( sum(case when day = to_date(date_sub(now(), 1)) then bidsoffered else 0 end) - 
-        sum(case when day = to_date(date_sub(now(), 2)) then bidsoffered else 0 end) ) as offer_difference,
-        case when sum(case when day = to_date(date_sub(now(), 2)) then bidsoffered else 0 end) > 0  then 
-        100 * ( sum(case when day = to_date(date_sub(now(), 1)) then bidsoffered else 0 end) - 
-        sum(case when day = to_date(date_sub(now(), 2)) then bidsoffered else 0 end) )/
-        sum(case when day = to_date(date_sub(now(), 2)) then bidsoffered else 0 end) else 0 end as offer_delta
-from rtb.rtbkpidaily
-where day >= to_date(date_sub(now(), 2))
-        and day < to_date(from_unixtime(iudf.det_unix_timestamp()))
-      and buyerid in (%s)
-group by 1,2) offer
-on spend.buyerid = offer.buyerid and spend.publisherid = offer.publisherid
+      and buyerid in ({0})
+group by 1,2
 ) res
 left join reference.masteraccount pub
 on res.publisherid = pub.accountid
 left join reference.masteraccount dsp
-on res.buyerid = dsp.accountid
-where cum_pct <= 0.9
+on res.accountid = dsp.accountid

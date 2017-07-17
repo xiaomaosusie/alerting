@@ -1,15 +1,10 @@
 select 
-        advertiserid as buyerid,
-        landingpagedomain,
-        ppdrevenue,
-        pdrevenue,
-        round(difference,2) as difference,
-        delta
-from
-(select
-        spend.*,
-        case when ppdrevenue > 0 then 100*difference/ppdrevenue else 0 end as delta,
-        sum(ppdrevenue) over (partition by advertiserid order by ppdrevenue desc) / sum(ppdrevenue) over (partition by advertiserid) as cum_pct
+        advertiserid as accountid,
+        landingpagedomain as campaign,
+        round(ppdrevenue, 0) as ppdrevenue_cur,
+        round(pdrevenue, 0) as pdrevenue_cur,
+        round(difference, 0) as difference_cur,
+        case when ppdrevenue > 0 then 100*difference/ppdrevenue else 0 end as delta_pct
 from
 (select
         advertiserid,
@@ -21,7 +16,5 @@ from
 from rpt.rptdaily
 where day >= to_date(date_sub(now(), 2))
         and day < to_date(from_unixtime(iudf.det_unix_timestamp()))
-      and advertiserid in (%s)
-group by 1,2) spend
-) res
-where difference < 0
+      and advertiserid in ({0})
+group by 1,2) x 
